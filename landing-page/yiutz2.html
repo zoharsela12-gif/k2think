@@ -184,34 +184,29 @@
     .prob-item p { font-size: .82rem; color: var(--muted); line-height: 1.5; }
 
     /* ── SOLUTION ─────────────────────────────── */
-    .solution { background: var(--white); }
-    .sol-vis {
-      background: var(--teal);
-      border-radius: 24px; padding: 44px 36px;
-      position: relative; overflow: hidden;
+    .solution { background: var(--teal); }
+    .sol-header {
+      display: flex; justify-content: space-between;
+      align-items: flex-end; flex-wrap: wrap;
+      gap: 24px; margin-bottom: 48px;
     }
-    .sol-vis::before {
-      content: '✦';
-      position: absolute; top: 20px; left: 24px;
-      font-size: 1.6rem; opacity: .3;
+    .sol-header-text { max-width: 580px; }
+    .sol-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
     }
-    .sol-vis::after {
-      content: '✦';
-      position: absolute; bottom: 20px; right: 24px;
-      font-size: 1.1rem; opacity: .25;
-    }
-    .sol-steps { display: flex; flex-direction: column; gap: 14px; }
-    .sol-step {
-      background: var(--white); border-radius: 16px;
-      padding: 20px 22px;
-      display: flex; gap: 18px; align-items: flex-start;
+    .sol-card {
+      background: var(--white);
+      border-radius: 20px; padding: 30px 24px;
     }
     .sol-n {
-      font-size: 2.2rem; font-weight: 900;
-      color: var(--teal-d); line-height: 1; flex-shrink: 0;
+      font-size: 3rem; font-weight: 900;
+      color: rgba(26,26,26,.1); line-height: 1;
+      margin-bottom: 16px;
     }
-    .sol-step h4 { font-size: .95rem; font-weight: 800; margin-bottom: 4px; }
-    .sol-step p { font-size: .84rem; color: var(--muted); line-height: 1.55; }
+    .sol-card h4 { font-size: 1rem; font-weight: 800; margin-bottom: 8px; }
+    .sol-card p { font-size: .86rem; color: var(--muted); line-height: 1.65; }
 
     /* ── QUOTE ────────────────────────────────── */
     .quote-sec {
@@ -239,23 +234,23 @@
       position: relative; z-index: 1;
     }
 
-    /* ── UNIQUE ───────────────────────────────── */
+    /* ── UNIQUE / מה שונה ───────────────────────── */
     .unique { background: var(--mint); }
     .unique-list { display: flex; flex-direction: column; gap: 0; margin-top: 52px; }
     .unique-row {
-      display: grid; grid-template-columns: 80px 1fr;
-      gap: 28px; align-items: start;
-      padding: 36px 0;
+      display: flex; gap: 22px; align-items: flex-start;
+      padding: 28px 0;
       border-bottom: 1px solid rgba(0,0,0,.1);
     }
     .unique-row:last-child { border-bottom: none; }
-    .u-number {
-      font-size: 3.6rem; font-weight: 900;
-      color: rgba(26,26,26,.15); line-height: 1;
-      text-align: center;
+    .u-icon {
+      width: 48px; height: 48px; border-radius: 14px;
+      background: var(--white); flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      margin-top: 2px;
     }
-    .u-body h3 { font-size: 1.2rem; font-weight: 900; margin-bottom: 8px; }
-    .u-body p { font-size: .97rem; color: rgba(26,26,26,.7); line-height: 1.8; max-width: 680px; }
+    .u-body h3 { font-size: 1.1rem; font-weight: 900; margin-bottom: 7px; }
+    .u-body p { font-size: .96rem; color: rgba(26,26,26,.7); line-height: 1.8; max-width: 720px; }
 
     /* ── HOW ─────────────────────────────────── */
     .how { background: var(--white); }
@@ -412,7 +407,8 @@
       .contact-wrap { padding: 36px 24px; }
       footer { padding: 36px 24px; }
       .quote-sec { padding: 72px 24px; }
-      .unique-row { grid-template-columns: 48px 1fr; }
+      .sol-grid { grid-template-columns: repeat(2, 1fr); }
+      .sol-header { flex-direction: column; }
     }
   </style>
 </head>
@@ -527,47 +523,34 @@
 <!-- SOLUTION -->
 <section class="sec solution" id="solution">
   <div class="container">
-    <div class="two-col" style="direction:ltr">
-      <div style="direction:rtl">
-        <div class="sol-vis">
-          <div class="sol-steps">
-            <div class="sol-step">
-              <span class="sol-n">1</span>
-              <div>
-                <h4>למידה דרך משחק</h4>
-                <p>לא הרצאה— חוויה. כל המשתתפים חווים את הדינמיקה מבפנים ומגלים דפוסים שנשארו מוסתרים.</p>
-              </div>
-            </div>
-            <div class="sol-step">
-              <span class="sol-n">2</span>
-              <div>
-                <h4>בחירה ומיקוד</h4>
-                <p>מזהים יחד את הנקודות שרוצים לשנות: פערים, יעדים, תקשורת או דרכי עבודה.</p>
-              </div>
-            </div>
-            <div class="sol-step">
-              <span class="sol-n">3</span>
-              <div>
-                <h4>חשיבה ותוכנית פעולה</h4>
-                <p>תהליך מובנה בשיטת כובעי החשיבה שמוביל לתוכנית שהצוות בנה— ומחוייב אליה.</p>
-              </div>
-            </div>
-            <div class="sol-step">
-              <span class="sol-n">4</span>
-              <div>
-                <h4>בהירות ומחוייבות</h4>
-                <p>מה ברור? מה עדיין חסר? מה הצעד הבא? סוגרים את המעגל עם החלטות ברורות ואחריות מוגדרת.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div style="direction:rtl">
+    <div class="sol-header">
+      <div class="sol-header-text">
         <span class="label-tag">הפתרון</span>
         <h2 class="sec-h">שיטה שמייצרת תנועה ונקודת מפגש</h2>
-        <p class="sec-p">שיטה חדשנית לקידום שינוי ארגוני מהיר ועמוק. המבוססת על עקרונות כובעי החשיבה, היא מאפשרת לכל שכבות הארגון לקחת חלק בזיהוי האתגרים, בחשיבה לפתרון ובבניית תוכנית פעולה ברורה.</p>
-        <p class="sec-p">כשאנשים שותפים לבניית הפתרון— הם מחוייבים ליישם אותו. זה לא ייעוץ שמסתיים בדוח. זה שינוי שמחזיק לאורך זמן.</p>
-        <a href="#contact" class="read-more">בואו נדבר על הארגון שלכם ←</a>
+        <p class="sec-p">שיטה חדשנית לקידום שינוי ארגוני מהיר ועמוק. מבוססת על עקרונות כובעי החשיבה, ומאפשרת לכל שכבות הארגון לקחת חלק בזיהוי האתגרים, בחשיבה לפתרון ובבניית תוכנית פעולה ברורה.</p>
+      </div>
+      <a href="#contact" class="read-more">בואו נדבר על הארגון שלכם ←</a>
+    </div>
+    <div class="sol-grid">
+      <div class="sol-card">
+        <div class="sol-n">1</div>
+        <h4>למידה דרך משחק</h4>
+        <p>לא הרצאה— חוויה. כל המשתתפים חווים את הדינמיקה מבפנים ומגלים דפוסים שנשארו מוסתרים.</p>
+      </div>
+      <div class="sol-card">
+        <div class="sol-n">2</div>
+        <h4>בחירה ומיקוד</h4>
+        <p>מזהים יחד את הנקודות שרוצים לשנות: פערים, יעדים, תקשורת או דרכי עבודה.</p>
+      </div>
+      <div class="sol-card">
+        <div class="sol-n">3</div>
+        <h4>חשיבה ותוכנית פעולה</h4>
+        <p>תהליך מובנה בשיטת כובעי החשיבה שמוביל לתוכנית שהצוות בנה— ומחוייב אליה.</p>
+      </div>
+      <div class="sol-card">
+        <div class="sol-n">4</div>
+        <h4>בהירות ומחוייבות</h4>
+        <p>מה ברור? מה עדיין חסר? מה הצעד הבא? סוגרים את המעגל עם החלטות ברורות ואחריות מוגדרת.</p>
       </div>
     </div>
   </div>
@@ -583,76 +566,53 @@
 <!-- UNIQUE -->
 <section class="sec unique" id="unique">
   <div class="container">
-    <span class="label-tag">מה מיוחד בתהליך</span>
-    <h2 class="sec-h">למה זה עובד<br/>באמת?</h2>
+    <span class="label-tag">מה שונה אצלנו</span>
+    <h2 class="sec-h">מה שונה אצלנו</h2>
     <div class="unique-list">
       <div class="unique-row">
-        <div class="u-number">01</div>
+        <div class="u-icon">
+          <!-- Target icon -->
+          <svg width="26" height="26" viewBox="0 0 32 32" fill="none" stroke="#1a1a1a" stroke-width="1.6" stroke-linecap="round">
+            <circle cx="16" cy="16" r="13"/>
+            <circle cx="16" cy="16" r="8"/>
+            <circle cx="16" cy="16" r="3"/>
+          </svg>
+        </div>
         <div class="u-body">
           <h3>תהליך ממוקד ותכליתי</h3>
           <p>עובדים לפי תבנית מסודרת שמביאה סדר, מיקוד ובהירות— ומאפשרת לארגון לקדם שינוי אמיתי בזמן קצר, ללא תלות ביועץ גם אחרי סיום התהליך.</p>
         </div>
       </div>
       <div class="unique-row">
-        <div class="u-number">02</div>
+        <div class="u-icon">
+          <!-- Connected people icon -->
+          <svg width="26" height="26" viewBox="0 0 32 32" fill="none" stroke="#1a1a1a" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="10" cy="10" r="4"/>
+            <circle cx="22" cy="10" r="4"/>
+            <path d="M4 26c0-5 2.7-8 6-8h2"/>
+            <path d="M20 18h2c3.3 0 6 3 6 8"/>
+            <line x1="16" y1="10" x2="16" y2="18"/>
+            <circle cx="16" cy="20" r="2"/>
+          </svg>
+        </div>
         <div class="u-body">
           <h3>שיתוף פעולה שמעלה אפקטיביות</h3>
           <p>כשכל שכבות הארגון משתתפות בתהליך, נבנית תרבות של אחריות משותפת ושיתוף פעולה אמיתי— לא מלמעלה למטה, אלא מבפנים החוצה.</p>
         </div>
       </div>
       <div class="unique-row">
-        <div class="u-number">03</div>
+        <div class="u-icon">
+          <!-- Growth chart icon -->
+          <svg width="26" height="26" viewBox="0 0 32 32" fill="none" stroke="#1a1a1a" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="4,26 10,18 16,22 22,12 28,7"/>
+            <polyline points="22,7 28,7 28,13"/>
+            <line x1="4" y1="5" x2="4" y2="27"/>
+            <line x1="4" y1="27" x2="28" y2="27"/>
+          </svg>
+        </div>
         <div class="u-body">
           <h3>מעורבות שמביאה מחוייבות</h3>
           <p>המשחק חושף דפוסי עבודה ומאפשר לבנות מנגנונים משופרים של תקשורת, קבלת החלטות ותיאום— שמקדמים תוצאות ארגוניות ועסקיות מוחשיות.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- HOW -->
-<section class="sec how" id="how">
-  <div class="container">
-    <div class="two-col">
-      <div>
-        <span class="label-tag">מבנה התהליך</span>
-        <h2 class="sec-h">שלב אחר שלב</h2>
-        <p class="sec-p">תהליך מובנה ומותאם לצרכי הארגון— עם תוצאות מוחשיות שניתן ליישם מהיום שאחרי.</p>
-        <p class="sec-p">כל תהליך מותאם אישית לגודל הצוות, לאתגרים ולמטרות הספציפיות. אין פה תבנית אחת שמתאימה לכולם— יש פה כלי שמותאם בדיוק לכם.</p>
-        <a href="#contact" class="read-more">בואו נבנה תהליך יחד ←</a>
-      </div>
-      <div class="how-vis">
-        <p class="how-vis-title">✦ ארבעת שלבי התהליך</p>
-        <div class="how-items">
-          <div class="how-item">
-            <span class="how-num-circle">1</span>
-            <div class="how-item-text">
-              <h4>למידה דרך משחק</h4>
-              <p>חוויה שחושפת את הדינמיקה הארגונית מבפנים</p>
-            </div>
-          </div>
-          <div class="how-item">
-            <span class="how-num-circle">2</span>
-            <div class="how-item-text">
-              <h4>בחירה ומיקוד</h4>
-              <p>זיהוי הנקודות הקריטיות שרוצים לשנות</p>
-            </div>
-          </div>
-          <div class="how-item">
-            <span class="how-num-circle">3</span>
-            <div class="how-item-text">
-              <h4>חשיבה לפי תבניות</h4>
-              <p>בניית תוכנית פעולה ישימה וברורה ביחד</p>
-            </div>
-          </div>
-          <div class="how-item">
-            <span class="how-num-circle">4</span>
-            <div class="how-item-text">
-              <h4>בהירות ומחוייבות</h4>
-              <p>מה ברור? מה הצעד הבא? מי עושה מה?</p>
-            </div>
-          </div>
         </div>
       </div>
     </div>
@@ -782,10 +742,6 @@
         <h2 class="sec-h">זוהר סלע לוי</h2>
         <p class="sec-p">אני מלווה ארגונים, מנהלים ואנשים פרטיים בפיתוח חשיבה אפקטיבית ויכולת מיקוד. מגיעה מעולמות האימון והפיתוח האישי, עם ניסיון בליווי תהליכים ארגוניים וקהילתיים.</p>
         <p class="sec-p">אני עוזרת להפוך חלומות למטרות מדידות, לפתח מיומנויות חשיבה ולבנות תוכניות פעולה שמובילות לתוצאות. <strong>טווים חשיבה</strong> פיתחה שיטה ייחודית שמאפשרת לכל שכבות הארגון לקחת חלק אמיתי בשינוי.</p>
-        <div class="quote-inline">
-          <p>״אם כולם חושבים אותו הדבר,<br/>אז מישהו לא חושב.״</p>
-          <cite>—גנרל ג'ורג' פטון</cite>
-        </div>
       </div>
     </div>
   </div>
