@@ -46,12 +46,9 @@
       display: flex; align-items: center; justify-content: space-between;
     }
     .logo {
-      font-size: 1.1rem; font-weight: 400; color: var(--text);
       text-decoration: none;
-      border: 2px solid var(--text);
-      padding: 5px 14px; border-radius: 8px;
+      display: flex; align-items: center;
     }
-    .logo strong { font-weight: 900; }
     .nav-links { display: flex; gap: 32px; list-style: none; font-size: .9rem; font-weight: 500; }
     .nav-links a { color: var(--text); text-decoration: none; transition: opacity .2s; }
     .nav-links a:hover { opacity: .5; }
@@ -308,12 +305,13 @@
       box-shadow: 0 8px 32px rgba(0,0,0,.06);
     }
     .about-photo {
-      width: 100%; aspect-ratio: 1; border-radius: 18px;
+      width: 80%; aspect-ratio: 1; border-radius: 50%;
       background: var(--teal);
       display: flex; align-items: center; justify-content: center;
-      margin-bottom: 24px; overflow: hidden;
+      margin: 0 auto 24px; overflow: hidden;
+      box-shadow: 0 8px 32px rgba(0,0,0,.1);
     }
-    .about-photo img { width: 100%; height: 100%; object-fit: cover; }
+    .about-photo img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
     .about-vis h3 { font-size: 1.35rem; font-weight: 900; margin-bottom: 4px; }
     .about-vis .role { font-size: .85rem; color: var(--muted); margin-bottom: 18px; }
     .tags { display: flex; flex-wrap: wrap; gap: 7px; }
@@ -384,11 +382,8 @@
       justify-content: space-between; flex-wrap: wrap; gap: 20px;
     }
     .footer-logo {
-      font-size: 1.1rem; font-weight: 400; color: var(--white);
-      border: 1.5px solid rgba(255,255,255,.3);
-      padding: 5px 14px; border-radius: 8px;
+      display: flex; align-items: center;
     }
-    .footer-logo strong { font-weight: 900; }
     .footer-links { display: flex; gap: 24px; flex-wrap: wrap; }
     footer a { color: rgba(255,255,255,.6); text-decoration: none; font-size: .88rem; }
     footer a:hover { color: var(--white); }
@@ -438,7 +433,7 @@
     </div>
   </div>
   <div class="hero-illustration">
-    <img src="illustration.png" alt="ייעוץ ארגוני - טווים חשיבה"
+    <img src="zohar.png" alt="ייעוץ ארגוני - טווים חשיבה"
          style="width:100%; max-width:520px; border-radius:28px; display:block; margin:0 auto;" />
   </div>
 </section>
@@ -653,7 +648,7 @@
       <div style="direction:rtl">
         <div class="about-vis">
           <div class="about-photo">
-            <img src="zohar.png" alt="זוהר סלע לוי" />
+            <img src="illustration.png" alt="זוהר סלע לוי" style="width:100%; height:100%; object-fit:cover; border-radius:50%;" />
           </div>
           <h3>זוהר סלע לוי</h3>
           <p class="role">יועצת ארגונית בעלת תואר שני, רס"ן במיל'</p>
