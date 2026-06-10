@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>כובעי חשיבה | סדנת חשיבה למנהלים – טווים חשיבה</title>
-  <meta name="description" content="סדנת כובעי החשיבה – כלי ניהולי מבוסס שיטת ששת הכובעים של אדוארד דה בונו. לקבלת החלטות מדויקות וחשיבה מרובת זוויות." />
+  <meta name="description" content="סדנת כובעי החשיבה – שיטת ששת הכובעים של אדוארד דה בונו. לקבלת החלטות מדויקות וחשיבה מרובת זוויות." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
@@ -13,437 +13,418 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --teal-bg:    #cce8e4;
-      --teal-light: #e4f4f2;
-      --mint-bg:    #d8ede8;
-      --lime:       #d4e84a;
-      --lime-hover: #bfd020;
-      --white:      #ffffff;
-      --text:       #1c1c1c;
-      --muted:      #555555;
-      --border:     #d8d8d8;
-      --radius:     12px;
+      --teal:     #a8e0dc;
+      --teal-d:   #7eccc6;
+      --lavender: #c5b8e8;
+      --lime:     #d4e84a;
+      --lime-d:   #b8cc20;
+      --white:    #ffffff;
+      --text:     #1a1a1a;
+      --muted:    #5a5a5a;
+      --light:    #f5f5f5;
+      --border:   #e0e0e0;
+      --r-sm:     12px;
+      --r-md:     20px;
+      --r-lg:     28px;
     }
 
     html { scroll-behavior: smooth; }
-
     body {
       font-family: 'Heebo', sans-serif;
       background: var(--white);
       color: var(--text);
       line-height: 1.7;
-      font-size: 16px;
       overflow-x: hidden;
     }
 
     /* ── NAV ─────────────────────────────────── */
     nav {
       position: fixed; top: 0; width: 100%; z-index: 100;
-      background: rgba(255,255,255,0.95);
+      background: rgba(255,255,255,0.96);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border);
-      padding: 0 56px;
-      height: 64px;
+      padding: 0 52px; height: 66px;
       display: flex; align-items: center; justify-content: space-between;
     }
-    .nav-logo {
-      font-size: 1.25rem;
-      font-weight: 400;
-      color: var(--text);
+    .logo {
+      font-size: 1.15rem; font-weight: 400; color: var(--text);
       text-decoration: none;
-    }
-    .nav-logo strong { font-weight: 900; }
-    .nav-links {
-      display: flex; gap: 32px; list-style: none;
-      font-size: 0.9rem; font-weight: 500;
-    }
-    .nav-links a { color: var(--text); text-decoration: none; }
-    .nav-links a:hover { color: var(--muted); }
-    .nav-cta {
+      border: 2px solid var(--text);
+      padding: 5px 14px;
+      border-radius: var(--r-sm);
       background: var(--white);
-      color: var(--text);
-      padding: 9px 22px;
-      border: 1.5px solid var(--text);
-      font-weight: 600;
-      font-size: 0.9rem;
-      text-decoration: none;
-      border-radius: 6px;
+    }
+    .logo strong { font-weight: 900; }
+    .nav-links { display: flex; gap: 28px; list-style: none; font-size: 0.9rem; font-weight: 500; }
+    .nav-links a { color: var(--text); text-decoration: none; }
+    .nav-links a:hover { opacity: 0.6; }
+    .nav-cta {
+      background: var(--lime); color: var(--text);
+      padding: 9px 22px; border-radius: 50px;
+      font-weight: 700; font-size: 0.88rem;
+      text-decoration: none; border: none;
       transition: background 0.2s;
     }
-    .nav-cta:hover { background: var(--teal-light); }
+    .nav-cta:hover { background: var(--lime-d); }
 
     /* ── HERO ────────────────────────────────── */
     .hero {
-      background: var(--teal-bg);
-      padding: 140px 56px 100px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 64px;
-      align-items: center;
-      min-height: 85vh;
+      background: var(--teal);
+      padding: 148px 52px 100px;
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 60px; align-items: center;
+      min-height: 90vh;
+      position: relative; overflow: hidden;
     }
-    .hero-text {}
+    .hero-deco-1 {
+      position: absolute; top: 60px; left: 60px;
+      font-size: 2.2rem; opacity: 0.5; transform: rotate(15deg);
+    }
+    .hero-deco-2 {
+      position: absolute; bottom: 80px; right: 40px;
+      font-size: 1.6rem; opacity: 0.4; transform: rotate(-10deg);
+    }
+    .hero-deco-3 {
+      position: absolute; top: 40%; left: 52%;
+      font-size: 1.2rem; opacity: 0.3;
+    }
     .hero-eyebrow {
-      font-size: 0.82rem;
-      font-weight: 700;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 18px;
+      display: inline-block;
+      background: rgba(255,255,255,0.55);
+      border-radius: 50px;
+      padding: 6px 16px;
+      font-size: 0.8rem; font-weight: 700;
+      letter-spacing: 1px;
+      margin-bottom: 20px;
     }
     .hero h1 {
-      font-size: clamp(2.4rem, 4.5vw, 3.6rem);
-      font-weight: 900;
-      line-height: 1.18;
-      margin-bottom: 24px;
-      letter-spacing: -1px;
-      color: var(--text);
+      font-size: clamp(2.8rem, 5vw, 4.2rem);
+      font-weight: 900; line-height: 1.12;
+      letter-spacing: -1.5px; margin-bottom: 22px;
     }
     .hero p {
-      font-size: 1.05rem;
-      color: var(--muted);
-      line-height: 1.85;
-      margin-bottom: 40px;
-      max-width: 480px;
+      font-size: 1.05rem; color: rgba(26,26,26,0.75);
+      line-height: 1.85; margin-bottom: 40px; max-width: 460px;
     }
-    .btn-outline {
-      display: inline-block;
-      padding: 13px 30px;
-      border: 1.5px solid var(--text);
-      color: var(--text);
-      font-family: 'Heebo', sans-serif;
-      font-size: 0.95rem;
-      font-weight: 700;
-      text-decoration: none;
-      border-radius: 8px;
-      background: transparent;
-      cursor: pointer;
-      transition: background 0.2s;
+    .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn-dark {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 14px 28px; background: var(--text); color: var(--white);
+      border-radius: 50px; font-weight: 700; font-size: 0.95rem;
+      text-decoration: none; transition: opacity 0.2s;
     }
-    .btn-outline:hover { background: rgba(0,0,0,0.06); }
-    .btn-lime {
-      display: inline-block;
-      padding: 13px 30px;
-      border: 1.5px solid var(--text);
-      color: var(--text);
-      font-family: 'Heebo', sans-serif;
-      font-size: 0.95rem;
-      font-weight: 700;
-      text-decoration: none;
-      border-radius: 8px;
-      background: var(--lime);
-      cursor: pointer;
-      transition: background 0.2s;
+    .btn-dark:hover { opacity: 0.8; }
+    .btn-ghost {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 14px 28px; background: rgba(255,255,255,0.5);
+      color: var(--text); border-radius: 50px;
+      font-weight: 600; font-size: 0.95rem;
+      text-decoration: none; transition: background 0.2s;
     }
-    .btn-lime:hover { background: var(--lime-hover); }
-    .hero-visual {
-      display: flex; justify-content: center; align-items: center;
-    }
-    .hero-illus {
-      width: 100%;
-      max-width: 440px;
-      aspect-ratio: 1.1;
-      background: rgba(255,255,255,0.5);
-      border-radius: 20px;
-      display: flex; align-items: center; justify-content: center;
-      flex-direction: column;
-      gap: 16px;
-      padding: 32px;
-    }
-    .hats-row {
-      display: flex; gap: 12px; flex-wrap: wrap; justify-content: center;
-    }
-    .hat-pill {
-      display: flex; align-items: center; gap: 8px;
+    .btn-ghost:hover { background: rgba(255,255,255,0.75); }
+
+    /* hero card */
+    .hero-card {
       background: var(--white);
-      border: 1.5px solid var(--border);
-      border-radius: 50px;
-      padding: 8px 16px;
-      font-size: 0.82rem;
-      font-weight: 600;
+      border-radius: var(--r-lg);
+      padding: 36px 32px;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.08);
     }
-    .hat-dot { width: 14px; height: 14px; border-radius: 50%; flex-shrink: 0; }
+    .hero-card h3 {
+      font-size: 1rem; font-weight: 800; margin-bottom: 20px;
+      padding-bottom: 14px; border-bottom: 1px solid var(--border);
+    }
+    .hats-list { display: flex; flex-direction: column; gap: 10px; }
+    .hat-row {
+      display: flex; align-items: center; gap: 12px;
+      padding: 10px 14px;
+      background: var(--light);
+      border-radius: var(--r-sm);
+      font-size: 0.88rem; font-weight: 600;
+    }
+    .hat-dot { width: 18px; height: 18px; border-radius: 50%; flex-shrink: 0; }
 
     /* ── SHARED ───────────────────────────────── */
-    section { padding: 100px 56px; }
-    .container { max-width: 1100px; margin: 0 auto; }
+    section { padding: 100px 52px; }
+    .container { max-width: 1080px; margin: 0 auto; }
     .eyebrow {
+      display: inline-block;
+      background: var(--lime);
+      border-radius: 50px;
+      padding: 5px 16px;
       font-size: 0.78rem; font-weight: 700;
-      letter-spacing: 2px; text-transform: uppercase;
-      color: var(--muted); margin-bottom: 12px;
+      letter-spacing: 1px;
+      margin-bottom: 16px;
     }
     .sec-title {
-      font-size: clamp(1.9rem, 3.5vw, 2.8rem);
-      font-weight: 800; line-height: 1.2;
-      letter-spacing: -0.5px; margin-bottom: 18px;
+      font-size: clamp(2rem, 3.8vw, 3rem);
+      font-weight: 900; line-height: 1.18;
+      letter-spacing: -0.8px; margin-bottom: 18px;
     }
-    .sec-sub {
-      font-size: 1rem; color: var(--muted);
-      max-width: 520px; line-height: 1.8;
-    }
-    .two-col {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 80px;
-      align-items: center;
-    }
-    .two-col.reverse { direction: ltr; }
-    .two-col.reverse > * { direction: rtl; }
-    .col-img {
-      border-radius: var(--radius);
-      overflow: hidden;
-      aspect-ratio: 1.1;
-      background: var(--teal-light);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 5rem;
-    }
-    .col-img img { width: 100%; height: 100%; object-fit: cover; }
+    .sec-sub { font-size: 1rem; color: var(--muted); max-width: 520px; line-height: 1.8; }
 
-    /* ── ABOUT WORKSHOP ───────────────────────── */
-    .workshop { background: var(--white); }
-    .workshop-body p {
-      font-size: 1rem; color: var(--muted);
-      line-height: 1.85; margin-bottom: 18px;
-    }
-    .steps { margin-top: 28px; }
-    .step { display: flex; gap: 16px; padding: 14px 0; border-bottom: 1px solid #ebebeb; }
-    .step:last-child { border-bottom: none; }
+    /* ── WHAT ─────────────────────────────────── */
+    .what { background: var(--white); }
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
+    .two-col-r { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
+    .what-body p { font-size: 1rem; color: var(--muted); line-height: 1.85; margin-bottom: 16px; }
+    .steps { margin-top: 28px; display: flex; flex-direction: column; gap: 0; }
+    .step-item { display: flex; gap: 16px; padding: 16px 0; border-bottom: 1px solid var(--border); }
+    .step-item:last-child { border-bottom: none; }
     .step-n {
-      font-size: 1.6rem; font-weight: 900;
-      color: var(--lime-hover); line-height: 1; min-width: 28px;
+      width: 32px; height: 32px; border-radius: 50%;
+      background: var(--teal); display: flex; align-items: center;
+      justify-content: center; font-weight: 900; font-size: 0.88rem;
+      flex-shrink: 0; margin-top: 2px;
     }
-    .step h4 { font-size: 0.95rem; font-weight: 700; margin-bottom: 2px; }
-    .step p { font-size: 0.87rem; color: var(--muted); line-height: 1.5; }
-    .read-more {
+    .step-item h4 { font-size: 0.95rem; font-weight: 700; margin-bottom: 3px; }
+    .step-item p { font-size: 0.87rem; color: var(--muted); line-height: 1.5; }
+    .link-arrow {
       display: inline-flex; align-items: center; gap: 6px;
-      margin-top: 28px;
-      font-size: 0.92rem; font-weight: 700;
+      margin-top: 24px; font-size: 0.92rem; font-weight: 700;
       color: var(--text); text-decoration: none;
-      border-bottom: 2px solid var(--text);
-      padding-bottom: 2px;
-      transition: color 0.2s;
     }
-    .read-more:hover { color: var(--muted); border-color: var(--muted); }
+    .link-arrow:hover { opacity: 0.6; }
 
-    /* ── HATS SECTION ─────────────────────────── */
-    .hats-section { background: var(--teal-light); }
-    .hats-grid {
-      display: grid;
-      grid-template-columns: repeat(6, 1fr);
-      gap: 12px;
-      margin-top: 52px;
+    /* what visual */
+    .what-visual {
+      background: var(--lavender);
+      border-radius: var(--r-lg);
+      padding: 36px 28px;
+      position: relative;
     }
-    .hat-card {
+    .what-visual .deco { position: absolute; top: 20px; left: 20px; font-size: 1.4rem; opacity: 0.5; }
+    .what-q {
+      font-size: 1.3rem; font-weight: 900; margin-bottom: 24px;
+      line-height: 1.3;
+    }
+    .what-cards { display: flex; flex-direction: column; gap: 10px; }
+    .what-card {
       background: var(--white);
-      border-radius: 10px;
-      padding: 24px 16px;
-      text-align: center;
-      border: 1px solid var(--border);
+      border-radius: var(--r-sm);
+      padding: 14px 18px;
+      font-size: 0.88rem; font-weight: 600;
+      display: flex; align-items: center; gap: 10px;
     }
-    .hat-circle {
-      width: 44px; height: 44px;
-      border-radius: 50%;
-      margin: 0 auto 12px;
-      border: 2px solid rgba(0,0,0,0.12);
-    }
-    .hat-card h4 { font-size: 0.82rem; font-weight: 800; margin-bottom: 4px; }
-    .hat-card p { font-size: 0.72rem; color: var(--muted); line-height: 1.4; }
+    .what-card .icon { font-size: 1.1rem; }
 
     /* ── BENEFITS ─────────────────────────────── */
-    .benefits { background: var(--white); }
+    .benefits { background: var(--light); }
     .benefits-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 28px;
-      margin-top: 52px;
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 20px; margin-top: 52px;
     }
-    .benefit {
-      padding: 32px 24px;
-      border-radius: var(--radius);
-      background: var(--teal-light);
-    }
-    .benefit-icon {
-      width: 48px; height: 48px;
-      border-radius: 50%;
+    .benefit-card {
       background: var(--white);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.4rem;
-      margin-bottom: 16px;
-      border: 1px solid var(--border);
+      border-radius: var(--r-md);
+      padding: 32px 26px;
+      transition: transform 0.2s, box-shadow 0.2s;
+      position: relative; overflow: hidden;
     }
-    .benefit h3 { font-size: 1rem; font-weight: 800; margin-bottom: 8px; }
-    .benefit p { font-size: 0.88rem; color: var(--muted); line-height: 1.65; }
+    .benefit-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,0.08); }
+    .benefit-card::before {
+      content: ''; position: absolute;
+      top: 0; right: 0;
+      width: 80px; height: 80px;
+      border-radius: 0 var(--r-md) 0 80px;
+    }
+    .benefit-card:nth-child(1)::before { background: var(--teal); opacity: 0.35; }
+    .benefit-card:nth-child(2)::before { background: var(--lavender); opacity: 0.35; }
+    .benefit-card:nth-child(3)::before { background: var(--lime); opacity: 0.5; }
+    .benefit-card:nth-child(4)::before { background: var(--lavender); opacity: 0.35; }
+    .benefit-card:nth-child(5)::before { background: var(--lime); opacity: 0.5; }
+    .benefit-card:nth-child(6)::before { background: var(--teal); opacity: 0.35; }
+    .b-num {
+      font-size: 2.8rem; font-weight: 900;
+      color: rgba(26,26,26,0.12); line-height: 1;
+      margin-bottom: 10px;
+    }
+    .benefit-card h3 { font-size: 1rem; font-weight: 800; margin-bottom: 8px; }
+    .benefit-card p { font-size: 0.88rem; color: var(--muted); line-height: 1.65; }
 
     /* ── QUOTE ────────────────────────────────── */
-    .quote-section {
+    .quote-sec {
       background: var(--lime);
-      padding: 80px 56px;
-      text-align: center;
+      padding: 88px 52px; text-align: center;
+      position: relative; overflow: hidden;
     }
-    .quote-mark {
-      font-size: 5rem; font-weight: 900;
-      line-height: 0.6;
-      color: rgba(0,0,0,0.18);
-      margin-bottom: 16px;
+    .quote-sec .deco-q {
+      font-size: 14rem; font-weight: 900;
+      color: rgba(0,0,0,0.07); line-height: 0.7;
+      position: absolute; top: 20px; right: 60px;
+      font-family: Georgia, serif;
     }
-    .quote-section blockquote {
-      font-size: clamp(1.8rem, 4vw, 3rem);
-      font-weight: 800;
-      line-height: 1.3;
-      color: var(--text);
-      max-width: 700px;
-      margin: 0 auto 20px;
+    .quote-sec blockquote {
+      font-size: clamp(2rem, 4.5vw, 3.4rem);
+      font-weight: 900; line-height: 1.25;
+      color: var(--text); max-width: 720px;
+      margin: 0 auto 20px; position: relative; z-index: 1;
+      letter-spacing: -0.5px;
     }
-    .quote-section cite {
+    .quote-sec cite {
       font-size: 0.88rem; font-weight: 600;
-      color: var(--muted); font-style: normal;
+      color: rgba(26,26,26,0.6); font-style: normal;
+      position: relative; z-index: 1;
     }
 
+    /* ── HOW ─────────────────────────────────── */
+    .how { background: var(--white); }
+    .how-cards {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 20px; margin-top: 52px;
+    }
+    .how-card {
+      background: var(--teal);
+      border-radius: var(--r-lg);
+      padding: 36px 28px; position: relative;
+    }
+    .how-card:nth-child(2) { background: var(--lavender); }
+    .how-card:nth-child(3) { background: var(--lime); }
+    .how-n {
+      font-size: 4rem; font-weight: 900;
+      color: rgba(0,0,0,0.12); line-height: 1; margin-bottom: 12px;
+    }
+    .how-card h3 { font-size: 1.1rem; font-weight: 800; margin-bottom: 10px; }
+    .how-card p { font-size: 0.9rem; line-height: 1.7; color: rgba(26,26,26,0.75); }
+    .how-deco { position: absolute; top: 20px; left: 20px; font-size: 1.3rem; opacity: 0.5; }
+
     /* ── FORMAT ───────────────────────────────── */
-    .format { background: var(--white); }
+    .format { background: var(--light); }
     .format-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-      margin-top: 52px;
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 20px; margin-top: 52px;
     }
     .format-card {
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 32px 24px;
-      text-align: center;
-      transition: box-shadow 0.2s;
+      background: var(--white);
+      border-radius: var(--r-md);
+      padding: 36px 28px; text-align: center;
+      border: 1.5px dashed var(--border);
+      transition: border-color 0.2s;
     }
-    .format-card:hover { box-shadow: 0 8px 28px rgba(0,0,0,0.08); }
-    .format-icon {
-      font-size: 2rem; margin-bottom: 14px;
-    }
+    .format-card:hover { border-color: var(--teal-d); }
+    .f-icon { font-size: 2.4rem; margin-bottom: 16px; }
     .format-card h3 { font-size: 1rem; font-weight: 800; margin-bottom: 10px; }
-    .format-card p { font-size: 0.9rem; color: var(--muted); line-height: 1.6; }
-    .f-tag {
-      display: inline-block; margin-top: 14px;
-      background: var(--lime); border-radius: 50px;
-      padding: 4px 14px; font-size: 0.78rem; font-weight: 700;
+    .format-card p { font-size: 0.9rem; color: var(--muted); line-height: 1.65; }
+    .f-pill {
+      display: inline-block; margin-top: 16px;
+      background: var(--teal); border-radius: 50px;
+      padding: 5px 16px; font-size: 0.78rem; font-weight: 700;
     }
 
     /* ── ABOUT ────────────────────────────────── */
-    .about { background: var(--mint-bg); }
-    .about .two-col { align-items: start; }
-    .about-card {
+    .about { background: var(--lavender); position: relative; overflow: hidden; }
+    .about .deco-star-1 { position: absolute; top: 40px; left: 40px; font-size: 2rem; opacity: 0.35; }
+    .about .deco-star-2 { position: absolute; bottom: 60px; right: 80px; font-size: 1.4rem; opacity: 0.3; }
+    .about .container { position: relative; z-index: 1; }
+    .about-grid { display: grid; grid-template-columns: 320px 1fr; gap: 72px; align-items: start; }
+    .about-id-card {
       background: var(--white);
-      border-radius: var(--radius);
-      padding: 32px;
-      border: 1px solid var(--border);
+      border-radius: var(--r-lg);
+      padding: 32px 26px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.08);
     }
     .about-photo {
-      width: 100%;
-      aspect-ratio: 1;
-      border-radius: 10px;
-      background: var(--teal-bg);
+      width: 100%; aspect-ratio: 1;
+      border-radius: var(--r-md);
+      background: var(--teal);
       display: flex; align-items: center; justify-content: center;
-      font-size: 5rem;
-      margin-bottom: 20px;
+      font-size: 5rem; margin-bottom: 20px;
+      overflow: hidden;
     }
-    .about-card h3 { font-size: 1.3rem; font-weight: 800; margin-bottom: 4px; }
-    .about-card .subtitle { font-size: 0.88rem; color: var(--muted); margin-bottom: 16px; font-weight: 500; }
-    .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+    .about-photo img { width: 100%; height: 100%; object-fit: cover; }
+    .about-id-card h3 { font-size: 1.25rem; font-weight: 900; margin-bottom: 4px; }
+    .about-id-card .role { font-size: 0.85rem; color: var(--muted); margin-bottom: 18px; font-weight: 500; }
+    .tag-row { display: flex; flex-wrap: wrap; gap: 7px; }
     .tag {
-      background: var(--teal-light);
-      border-radius: 50px;
-      padding: 5px 14px;
-      font-size: 0.78rem; font-weight: 600; color: var(--text);
+      background: var(--lavender); border-radius: 50px;
+      padding: 5px 12px; font-size: 0.75rem; font-weight: 700;
     }
-    .about-text p {
-      font-size: 1rem; color: var(--muted);
-      line-height: 1.85; margin-bottom: 18px;
-    }
-    .about-text p strong { color: var(--text); font-weight: 700; }
+    .about-text { padding-top: 8px; }
+    .about-text .eyebrow { background: rgba(255,255,255,0.6); }
+    .about-text p { font-size: 1rem; color: rgba(26,26,26,0.8); line-height: 1.85; margin-bottom: 18px; }
+    .about-text p strong { color: var(--text); font-weight: 800; }
 
     /* ── CONTACT ──────────────────────────────── */
     .contact { background: var(--white); }
-    .contact-wrap {
-      max-width: 640px; margin: 52px auto 0;
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 52px 48px;
-      background: var(--teal-light);
+    .contact-inner { max-width: 640px; margin: 0 auto; }
+    .contact-box {
+      background: var(--teal);
+      border-radius: var(--r-lg);
+      padding: 52px 48px; margin-top: 52px;
+      position: relative; overflow: hidden;
     }
-    .contact-wrap h3 { font-size: 1.6rem; font-weight: 800; margin-bottom: 8px; }
-    .contact-wrap > p { color: var(--muted); margin-bottom: 36px; font-size: 0.97rem; }
+    .contact-box .deco { position: absolute; top: 24px; left: 24px; font-size: 1.6rem; opacity: 0.35; }
+    .contact-box h3 { font-size: 1.6rem; font-weight: 900; margin-bottom: 8px; }
+    .contact-box > p { color: rgba(26,26,26,0.7); margin-bottom: 32px; font-size: 0.97rem; }
     .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-    .form-group { margin-bottom: 16px; }
-    .form-group label {
-      display: block; font-size: 0.86rem; font-weight: 700; margin-bottom: 7px;
-    }
-    .form-group label .opt { font-weight: 400; color: var(--muted); }
-    .form-group input {
-      width: 100%;
-      padding: 12px 16px;
-      border: 1.5px solid var(--border);
-      border-radius: 8px;
+    .fg { margin-bottom: 14px; }
+    .fg label { display: block; font-size: 0.85rem; font-weight: 700; margin-bottom: 7px; }
+    .fg label .opt { font-weight: 400; opacity: 0.6; }
+    .fg input {
+      width: 100%; padding: 13px 16px;
+      border: 2px solid rgba(0,0,0,0.12);
+      border-radius: var(--r-sm);
       background: var(--white);
       font-family: 'Heebo', sans-serif;
-      font-size: 0.95rem;
-      color: var(--text);
-      outline: none;
-      direction: rtl;
+      font-size: 0.95rem; color: var(--text);
+      outline: none; direction: rtl;
       transition: border-color 0.15s;
     }
-    .form-group input:focus { border-color: #7abfb8; }
-    .form-group input::placeholder { color: #bbb; }
+    .fg input:focus { border-color: var(--teal-d); }
+    .fg input::placeholder { color: #bbb; }
     .submit-btn {
-      width: 100%; padding: 15px;
-      background: var(--lime);
-      border: 1.5px solid var(--text);
-      border-radius: 8px;
+      width: 100%; padding: 16px;
+      background: var(--text); color: var(--white);
+      border: none; border-radius: 50px;
       font-family: 'Heebo', sans-serif;
       font-size: 1rem; font-weight: 800;
-      color: var(--text); cursor: pointer;
-      transition: background 0.2s, transform 0.1s;
-      margin-top: 6px;
+      cursor: pointer; display: flex; align-items: center;
+      justify-content: center; gap: 8px;
+      margin-top: 8px; transition: opacity 0.2s, transform 0.15s;
     }
-    .submit-btn:hover { background: var(--lime-hover); transform: translateY(-1px); }
-    .form-note { text-align: center; font-size: 0.78rem; color: var(--muted); margin-top: 12px; }
+    .submit-btn:hover { opacity: 0.82; transform: translateY(-2px); }
+    .form-note { text-align: center; font-size: 0.78rem; color: rgba(26,26,26,0.5); margin-top: 12px; }
     .success-msg {
-      display: none; text-align: center;
-      padding: 28px; border-radius: 10px;
-      background: var(--lime); border: 1px solid rgba(0,0,0,0.1);
-      margin-top: 20px; font-weight: 700; font-size: 1.05rem;
+      display: none; text-align: center; padding: 28px;
+      border-radius: var(--r-md);
+      background: var(--white); margin-top: 20px;
+      font-weight: 800; font-size: 1.1rem;
     }
 
     /* ── FOOTER ───────────────────────────────── */
     footer {
       background: var(--text);
-      padding: 52px 56px;
-      display: flex; align-items: center; justify-content: space-between;
-      flex-wrap: wrap; gap: 20px;
+      padding: 48px 52px;
+      display: flex; align-items: center;
+      justify-content: space-between; flex-wrap: wrap; gap: 20px;
     }
-    .footer-logo { font-size: 1.2rem; font-weight: 400; color: var(--white); }
+    .footer-logo {
+      font-size: 1.1rem; font-weight: 400; color: var(--white);
+      border: 1.5px solid rgba(255,255,255,0.3);
+      padding: 5px 14px; border-radius: var(--r-sm);
+    }
     .footer-logo strong { font-weight: 900; }
-    .footer-links { display: flex; gap: 24px; flex-wrap: wrap; }
-    footer a { color: rgba(255,255,255,0.65); text-decoration: none; font-size: 0.88rem; }
+    .footer-links { display: flex; gap: 20px; flex-wrap: wrap; }
+    footer a { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.88rem; }
     footer a:hover { color: var(--white); }
-    .footer-copy { color: rgba(255,255,255,0.4); font-size: 0.82rem; width: 100%; text-align: center; margin-top: 8px; }
+    .footer-copy { color: rgba(255,255,255,0.35); font-size: 0.8rem; width: 100%; text-align: center; }
 
     /* ── RESPONSIVE ───────────────────────────── */
     @media (max-width: 900px) {
       nav { padding: 0 20px; }
       .nav-links { display: none; }
       section { padding: 72px 24px; }
-      .hero { padding: 120px 24px 72px; grid-template-columns: 1fr; min-height: auto; }
-      .hero-visual { display: none; }
-      .two-col { grid-template-columns: 1fr; gap: 36px; }
-      .two-col.reverse { direction: rtl; }
-      .hats-grid { grid-template-columns: repeat(3, 1fr); }
-      .benefits-grid, .format-grid { grid-template-columns: 1fr 1fr; }
+      .hero { padding: 130px 24px 72px; grid-template-columns: 1fr; min-height: auto; }
+      .hero-card { display: none; }
+      .two-col, .two-col-r, .about-grid { grid-template-columns: 1fr; gap: 36px; }
+      .benefits-grid, .how-cards, .format-grid { grid-template-columns: 1fr 1fr; }
       .form-row { grid-template-columns: 1fr; }
-      .contact-wrap { padding: 36px 24px; }
-      footer { padding: 40px 24px; flex-direction: column; align-items: flex-start; }
-      .quote-section { padding: 64px 24px; }
+      .contact-box { padding: 36px 24px; }
+      footer { padding: 36px 24px; }
+      .quote-sec { padding: 72px 24px; }
     }
     @media (max-width: 560px) {
-      .benefits-grid, .format-grid { grid-template-columns: 1fr; }
-      .hats-grid { grid-template-columns: repeat(2, 1fr); }
+      .benefits-grid, .how-cards, .format-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -451,115 +432,81 @@
 
 <!-- NAV -->
 <nav>
-  <a href="#top" class="nav-logo">מפתחות <strong>חשיבה</strong></a>
+  <a href="#top" class="logo">טווים <strong>חשיבה</strong></a>
   <ul class="nav-links">
-    <li><a href="#workshop">על הסדנה</a></li>
+    <li><a href="#workshop">הסדנה</a></li>
     <li><a href="#benefits">יתרונות</a></li>
     <li><a href="#about">מי אני</a></li>
+    <li><a href="#contact">צור קשר</a></li>
   </ul>
-  <a href="#contact" class="nav-cta">יצירת קשר</a>
+  <a href="#contact" class="nav-cta">השאירו פרטים ←</a>
 </nav>
 
 <!-- HERO -->
 <section class="hero" id="top">
-  <div class="hero-text">
+  <span class="hero-deco-1">✦</span>
+  <span class="hero-deco-2">✦</span>
+  <span class="hero-deco-3">✦</span>
+  <div>
     <div class="hero-eyebrow">סדנה לפיתוח חשיבה ניהולית</div>
     <h1>כובעי<br/>חשיבה</h1>
-    <p>הגיע הזמן לחשוב אחרת — לא להיות חכמים יותר, אלא לחשוב טוב יותר. הסדנה מלמדת מנהלים לנתח מצבים מורכבים, לקבל החלטות מדויקות ולנהל שיח קבוצתי אפקטיבי, באמצעות שיטת ששת הכובעים של אדוארד דה בונו.</p>
-    <a href="#contact" class="btn-outline">יצירת קשר</a>
+    <p>הגיע הזמן לחשוב אחרת. הסדנה מלמדת מנהלים לנתח מצבים מורכבים, לקבל החלטות מדויקות ולנהל שיח קבוצתי אפקטיבי — דרך שיטת ששת הכובעים של אדוארד דה בונו.</p>
+    <div class="hero-btns">
+      <a href="#contact" class="btn-dark">השאירו פרטים ←</a>
+      <a href="#workshop" class="btn-ghost">קרא עוד</a>
+    </div>
   </div>
-  <div class="hero-visual">
-    <div class="hero-illus">
-      <div class="hats-row">
-        <div class="hat-pill"><span class="hat-dot" style="background:#d0d0d0"></span>עובדות</div>
-        <div class="hat-pill"><span class="hat-dot" style="background:#e05252"></span>רגש</div>
-        <div class="hat-pill"><span class="hat-dot" style="background:#2c2c2c"></span>ביקורת</div>
-      </div>
-      <div class="hats-row">
-        <div class="hat-pill"><span class="hat-dot" style="background:#c8b800"></span>יתרונות</div>
-        <div class="hat-pill"><span class="hat-dot" style="background:#3aaa5e"></span>יצירתיות</div>
-        <div class="hat-pill"><span class="hat-dot" style="background:#3a8fc4"></span>ניהול</div>
-      </div>
-      <p style="font-size:0.82rem;color:var(--muted);text-align:center;margin-top:8px;">ששת הכובעים — שש זוויות חשיבה</p>
+  <div class="hero-card">
+    <h3>✦ ששה כובעים — שש זוויות חשיבה</h3>
+    <div class="hats-list">
+      <div class="hat-row"><span class="hat-dot" style="background:#d0d0d0"></span>לבן — עובדות ונתונים</div>
+      <div class="hat-row"><span class="hat-dot" style="background:#e05252"></span>אדום — רגשות ואינטואיציות</div>
+      <div class="hat-row"><span class="hat-dot" style="background:#2c2c2c"></span>שחור — סיכונים וחסרונות</div>
+      <div class="hat-row"><span class="hat-dot" style="background:#c8b800"></span>צהוב — יתרונות והזדמנויות</div>
+      <div class="hat-row"><span class="hat-dot" style="background:#3aaa5e"></span>ירוק — יצירתיות ורעיונות</div>
+      <div class="hat-row"><span class="hat-dot" style="background:#3a8fc4"></span>כחול — ניהול החשיבה</div>
     </div>
   </div>
 </section>
 
-<!-- WORKSHOP -->
-<section class="workshop" id="workshop">
+<!-- WHAT -->
+<section class="what" id="workshop">
   <div class="container">
     <div class="two-col">
-      <div class="col-img">🎩</div>
-      <div class="workshop-body">
-        <div class="eyebrow">מה זה כובעי חשיבה</div>
+      <div class="what-body">
+        <span class="eyebrow">מה זה הסדנה</span>
         <h2 class="sec-title">חשיבה מרובת זוויות</h2>
-        <p>סדנה חווייתית המבוססת על שיטת ששת כובעי החשיבה של אדוארד דה בונו. מנהלים נדרשים לשלב בין רגש, עובדות, יצירתיות וביקורת — ולעיתים מתקשים להחזיק את כל הזוויות יחד.</p>
-        <p>הסדנה מלמדת לנתח מצבים מורכבים מתוך ראייה מגוונת, לקבל החלטות מדויקות ולנהל שיח קבוצתי אפקטיבי.</p>
+        <p>סדנה חווייתית המבוססת על שיטת ששת כובעי החשיבה של אדוארד דה בונו — אחת השיטות המוכחות ביותר בעולם לניהול חשיבה קבוצתית.</p>
+        <p>מנהלים לומדים לנתח מצבים מורכבים מתוך ראייה מגוונת, לקבל החלטות מדויקות ולנהל שיח קבוצתי אפקטיבי.</p>
         <div class="steps">
-          <div class="step">
-            <span class="step-n">1</span>
-            <div>
-              <h4>ממקדים את מטרת החשיבה</h4>
-              <p>בחירה, בניית חלופות, שיפור רעיון קיים או פתרון בעיה.</p>
-            </div>
+          <div class="step-item">
+            <div class="step-n">1</div>
+            <div><h4>ממקדים את מטרת החשיבה</h4><p>בחירה, בניית חלופות, שיפור רעיון קיים או פתרון בעיה.</p></div>
           </div>
-          <div class="step">
-            <span class="step-n">2</span>
-            <div>
-              <h4>חובשים כל פעם כובע אחד</h4>
-              <p>כותבים את כל המחשבות הרלוונטיות לאותה זווית — ללא הפרעה.</p>
-            </div>
+          <div class="step-item">
+            <div class="step-n">2</div>
+            <div><h4>חובשים כל פעם כובע אחד</h4><p>כותבים את כל המחשבות הרלוונטיות לאותה זווית בלבד.</p></div>
           </div>
-          <div class="step">
-            <span class="step-n">3</span>
-            <div>
-              <h4>מסמנים את הנקודות המשפיעות</h4>
-              <p>מזהים מה באמת קובע את ההחלטה ומה הצעד הבא.</p>
-            </div>
+          <div class="step-item">
+            <div class="step-n">3</div>
+            <div><h4>מסמנים את הנקודות המשפיעות</h4><p>מזהים מה קובע את ההחלטה ומה הצעד הבא.</p></div>
+          </div>
+          <div class="step-item">
+            <div class="step-n">4</div>
+            <div><h4>מה ברור? מה חסר? מה הצעד הבא?</h4><p>סיכום מובנה שמוביל לפעולה מדויקת.</p></div>
           </div>
         </div>
-        <a href="#contact" class="read-more">מעוניינים לשמוע עוד ←</a>
+        <a href="#contact" class="link-arrow">רוצים לשמוע עוד ←</a>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- HATS -->
-<section class="hats-section">
-  <div class="container">
-    <div class="eyebrow">שישה כובעים</div>
-    <h2 class="sec-title">כל כובע — זווית אחרת</h2>
-    <p class="sec-sub">כל כובע מייצג מסגרת חשיבה שונה. כשמחזיקים כובע אחד בכל פעם — נפתחות זוויות שבדרך כלל נשארות מוסתרות.</p>
-    <div class="hats-grid">
-      <div class="hat-card">
-        <div class="hat-circle" style="background:#e0e0e0"></div>
-        <h4>לבן</h4>
-        <p>עובדות, נתונים ומידע קיים</p>
-      </div>
-      <div class="hat-card">
-        <div class="hat-circle" style="background:#e05252"></div>
-        <h4>אדום</h4>
-        <p>רגשות, תחושות ואינטואיציות</p>
-      </div>
-      <div class="hat-card">
-        <div class="hat-circle" style="background:#2c2c2c"></div>
-        <h4>שחור</h4>
-        <p>סיכונים, חסרונות ובעיות</p>
-      </div>
-      <div class="hat-card">
-        <div class="hat-circle" style="background:#c8b800"></div>
-        <h4>צהוב</h4>
-        <p>יתרונות, הזדמנויות וערך</p>
-      </div>
-      <div class="hat-card">
-        <div class="hat-circle" style="background:#3aaa5e"></div>
-        <h4>ירוק</h4>
-        <p>יצירתיות ורעיונות חדשים</p>
-      </div>
-      <div class="hat-card">
-        <div class="hat-circle" style="background:#3a8fc4"></div>
-        <h4>כחול</h4>
-        <p>ניהול החשיבה, סיכום וסדר</p>
+      <div class="what-visual">
+        <span class="deco">✦</span>
+        <p class="what-q">האם הצוות שלכם מצליח לקיים שיח פתוח ולהביע דעות שונות?</p>
+        <div class="what-cards">
+          <div class="what-card"><span class="icon">💬</span>שיח קבוצתי אפקטיבי</div>
+          <div class="what-card"><span class="icon">🎯</span>קבלת החלטות מדויקת</div>
+          <div class="what-card"><span class="icon">💡</span>חשיבה יצירתית ורעיונות חדשים</div>
+          <div class="what-card"><span class="icon">🔍</span>ראייה מרובת זוויות</div>
+        </div>
       </div>
     </div>
   </div>
@@ -568,38 +515,38 @@
 <!-- BENEFITS -->
 <section class="benefits" id="benefits">
   <div class="container">
-    <div class="eyebrow">למה כדאי</div>
+    <span class="eyebrow">למה כדאי</span>
     <h2 class="sec-title">מה תקבלו מהסדנה</h2>
     <p class="sec-sub">הערך האמיתי הוא לא רק ב"לדעת" — אלא ב"לפעול אחרת" מחר בבוקר.</p>
     <div class="benefits-grid">
-      <div class="benefit">
-        <div class="benefit-icon">🎯</div>
+      <div class="benefit-card">
+        <div class="b-num">01</div>
         <h3>שיפור קבלת ההחלטות</h3>
         <p>כלי מובנה לניתוח כל זוויות ההחלטה לפני שפועלים. פחות החלטות שמתחרטים עליהן.</p>
       </div>
-      <div class="benefit">
-        <div class="benefit-icon">💡</div>
+      <div class="benefit-card">
+        <div class="b-num">02</div>
         <h3>הגברת יצירתיות וחדשנות</h3>
-        <p>מרחב מוגדר לרעיונות חדשים ללא ביקורת מוקדמת — ואז ניתוח שממקד אותם לפתרונות ישימים.</p>
+        <p>מרחב מוגדר לרעיונות חדשים ללא ביקורת מוקדמת, ואז ניתוח שממקד אותם לפתרונות ישימים.</p>
       </div>
-      <div class="benefit">
-        <div class="benefit-icon">🤝</div>
+      <div class="benefit-card">
+        <div class="b-num">03</div>
         <h3>תקשורת ושיתוף פעולה</h3>
-        <p>כשכל הצוות מכיר את השיטה, נוצרת שפה ניהולית משותפת שמייצרת תיאום ותרבות פתוחה.</p>
+        <p>כשכל הצוות מכיר את השיטה נוצרת שפה ניהולית משותפת שמייצרת תיאום ותרבות פתוחה.</p>
       </div>
-      <div class="benefit">
-        <div class="benefit-icon">🔍</div>
+      <div class="benefit-card">
+        <div class="b-num">04</div>
         <h3>ראייה מרובת זוויות</h3>
         <p>יכולת לצאת מנקודת המבט הרגילה ולבחון מצבים מכיוונים שבדרך כלל נשארים עיוורים.</p>
       </div>
-      <div class="benefit">
-        <div class="benefit-icon">⚡</div>
+      <div class="benefit-card">
+        <div class="b-num">05</div>
         <h3>יישום מיידי</h3>
         <p>הסדנה בנויה על תרגול עם אתגרים אמיתיים. יוצאים עם כלי שמשתמשים בו כבר ביום שאחרי.</p>
       </div>
-      <div class="benefit">
-        <div class="benefit-icon">💬</div>
-        <h3>שיח קבוצתי אפקטיבי</h3>
+      <div class="benefit-card">
+        <div class="b-num">06</div>
+        <h3>שפה ניהולית משותפת</h3>
         <p>ישיבות שמסתיימות עם הכרעות ברורות ותוכנית פעולה — לא עם שאלות פתוחות.</p>
       </div>
     </div>
@@ -607,39 +554,65 @@
 </section>
 
 <!-- QUOTE -->
-<section class="quote-section">
-  <div class="quote-mark">״</div>
-  <blockquote>
-    אם כולם חושבים אותו הדבר,<br/>
-    אז מישהו לא חושב.
-  </blockquote>
-  <cite>גנרל ג'ורג' פטון</cite>
+<section class="quote-sec">
+  <span class="deco-q">"</span>
+  <blockquote>אם כולם חושבים אותו הדבר,<br/>אז מישהו לא חושב.</blockquote>
+  <cite>— גנרל ג'ורג' פטון</cite>
+</section>
+
+<!-- HOW -->
+<section class="how" id="how">
+  <div class="container">
+    <span class="eyebrow">איך זה עובד</span>
+    <h2 class="sec-title">שלב אחר שלב</h2>
+    <p class="sec-sub">תהליך מובנה, פרקטי וחווייתי שמוביל לבניית תוכנית פעולה ישימה.</p>
+    <div class="how-cards">
+      <div class="how-card">
+        <span class="how-deco">✦</span>
+        <div class="how-n">1</div>
+        <h3>למידה דרך משחק</h3>
+        <p>למידה חווייתית שמאפשרת לכל משתתף לחוות ולהבין את הדינמיקה מבפנים — לא הרצאה פרונטלית.</p>
+      </div>
+      <div class="how-card">
+        <span class="how-deco">✦</span>
+        <div class="how-n">2</div>
+        <h3>בחירה ומיקוד</h3>
+        <p>זיהוי הנקודות שרוצים לבחון: פערים, תיאום בין צוותים, יעדים או קבלת החלטות.</p>
+      </div>
+      <div class="how-card">
+        <span class="how-deco">✦</span>
+        <div class="how-n">3</div>
+        <h3>חשיבה לפי תבניות</h3>
+        <p>תהליך מובנה של חשיבה אפקטיבית בשיטת כובעי החשיבה שמוביל לתוכנית פעולה ברורה.</p>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- FORMAT -->
 <section class="format" id="format">
   <div class="container">
-    <div class="eyebrow">מבנה הסדנה</div>
+    <span class="eyebrow">מבנה הסדנה</span>
     <h2 class="sec-title">גמישות לפי הארגון</h2>
-    <p class="sec-sub">הסדנה מותאמת אישית לצוות, לאתגרים הספציפיים ולגודל הקבוצה.</p>
+    <p class="sec-sub">הסדנה מותאמת אישית לצוות, לאתגרים ולגודל הקבוצה.</p>
     <div class="format-grid">
       <div class="format-card">
-        <div class="format-icon">⏱️</div>
+        <div class="f-icon">⏱️</div>
         <h3>משך הסדנה</h3>
         <p>בין שעתיים וחצי לחמש שעות, בהתאם לעומק הרצוי ולצרכי הארגון.</p>
-        <span class="f-tag">פרונטלי</span>
+        <span class="f-pill">פרונטלי</span>
       </div>
       <div class="format-card">
-        <div class="format-icon">🎲</div>
+        <div class="f-icon">🎲</div>
         <h3>מתודולוגיה</h3>
         <p>תרגולים חוויתיים, משחקי תפקידים, סימולציות ושיח פתוח — לא הרצאה.</p>
-        <span class="f-tag">למידה דרך משחק</span>
+        <span class="f-pill">למידה דרך משחק</span>
       </div>
       <div class="format-card">
-        <div class="format-icon">👥</div>
+        <div class="f-icon">👥</div>
         <h3>למי מתאים</h3>
         <p>מנהלים בכל שלב — כבסיס, כהעמקה, ככלי לצוותים ניהוליים ולדרג הנהלה.</p>
-        <span class="f-tag">מותאם אישית</span>
+        <span class="f-pill">מותאם אישית</span>
       </div>
     </div>
   </div>
@@ -647,26 +620,28 @@
 
 <!-- ABOUT -->
 <section class="about" id="about">
+  <span class="deco-star-1">✦</span>
+  <span class="deco-star-2">✦</span>
   <div class="container">
-    <div class="two-col reverse">
-      <div class="about-text">
-        <div class="eyebrow">מי אני</div>
-        <h2 class="sec-title">זוהר סלע לוי</h2>
-        <p>יועצת ארגונית בעלת תואר שני, רס"ן במיל'. אני מלווה ארגונים, מנהלים ואנשים פרטיים בפיתוח חשיבה אפקטיבית ויכולת מיקוד.</p>
-        <p>מגיעה מעולמות האימון והפיתוח האישי, עם ניסיון בליווי תהליכים ארגוניים וקהילתיים. אני עוזרת להפוך חלומות למטרות מדידות, לפתח מיומנויות חשיבה ולבנות תוכניות פעולה שמובילות לתוצאות.</p>
-        <p><strong>טווים חשיבה</strong> מציעה סדנאות ותהליך ייעוץ ארגוני שמפתחים את הכישורים שכל מנהל צריך: חשיבה ביקורתית, יצירתית ורגשית, קבלת החלטות והובלת תהליכים.</p>
-        <a href="#contact" class="read-more">קרא עוד ←</a>
-      </div>
-      <div class="about-card">
+    <div class="about-grid">
+      <div class="about-id-card">
         <div class="about-photo">👩</div>
         <h3>זוהר סלע לוי</h3>
-        <p class="subtitle">יועצת ארגונית בעלת תואר שני, רס"ן במיל'</p>
-        <div class="tags">
+        <p class="role">יועצת ארגונית בעלת תואר שני, רס"ן במיל'</p>
+        <div class="tag-row">
           <span class="tag">ייעוץ ארגוני</span>
           <span class="tag">פיתוח מנהלים</span>
           <span class="tag">אימון אישי</span>
           <span class="tag">כובעי חשיבה</span>
         </div>
+      </div>
+      <div class="about-text">
+        <span class="eyebrow">מי אני</span>
+        <h2 class="sec-title">זוהר סלע לוי</h2>
+        <p>אני מלווה ארגונים, מנהלים ואנשים פרטיים בפיתוח חשיבה אפקטיבית ויכולת מיקוד. מגיעה מעולמות האימון והפיתוח האישי, עם ניסיון בליווי תהליכים ארגוניים וקהילתיים.</p>
+        <p>אני עוזרת להפוך חלומות למטרות מדידות, לפתח מיומנויות חשיבה ולבנות תוכניות פעולה שמובילות לתוצאות.</p>
+        <p><strong>טווים חשיבה</strong> מציעה סדנאות ותהליך ייעוץ ארגוני שמפתחים את הכישורים שכל מנהל צריך: חשיבה ביקורתית, יצירתית ורגשית, קבלת החלטות והובלת תהליכים.</p>
+        <a href="#contact" class="link-arrow">בואו נדבר ←</a>
       </div>
     </div>
   </div>
@@ -675,38 +650,27 @@
 <!-- CONTACT -->
 <section class="contact" id="contact">
   <div class="container">
-    <div style="text-align:center">
-      <div class="eyebrow">דברו איתי</div>
-      <h2 class="sec-title">רוצים לשמוע עוד?</h2>
-      <p class="sec-sub" style="margin:0 auto">השאירו פרטים ואחזור אליכם בהקדם לשיחת היכרות — ללא התחייבות.</p>
-    </div>
-    <div class="contact-wrap">
-      <h3>השאירו פרטים</h3>
-      <p>ואחזור אליכם בהקדם לקביעת שיחה קצרה</p>
-      <form id="contactForm" onsubmit="handleSubmit(event)">
-        <div class="form-row">
-          <div class="form-group">
-            <label for="name">שם מלא</label>
-            <input type="text" id="name" placeholder="ישראל ישראלי" required />
+    <div class="contact-inner">
+      <div style="text-align:center">
+        <span class="eyebrow">דברו איתי</span>
+        <h2 class="sec-title">רוצים לשמוע עוד?</h2>
+        <p class="sec-sub" style="margin:0 auto">השאירו פרטים ואחזור אליכם בהקדם לשיחת היכרות — ללא התחייבות.</p>
+      </div>
+      <div class="contact-box">
+        <span class="deco">✦</span>
+        <h3>השאירו פרטים</h3>
+        <p>ואחזור אליכם בהקדם לקביעת שיחה קצרה</p>
+        <form id="contactForm" onsubmit="handleSubmit(event)">
+          <div class="form-row">
+            <div class="fg"><label>שם מלא</label><input type="text" placeholder="ישראל ישראלי" required /></div>
+            <div class="fg"><label>טלפון</label><input type="tel" placeholder="050-0000000" required /></div>
           </div>
-          <div class="form-group">
-            <label for="phone">טלפון</label>
-            <input type="tel" id="phone" placeholder="050-0000000" required />
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="email">כתובת מייל</label>
-          <input type="email" id="email" placeholder="name@company.com" required />
-        </div>
-        <div class="form-group">
-          <label for="company">חברה / ארגון <span class="opt">(אופציונלי)</span></label>
-          <input type="text" id="company" placeholder="שם הארגון" />
-        </div>
-        <button type="submit" class="submit-btn">שלחו את הפרטים שלי ←</button>
-        <p class="form-note">הפרטים שלכם מאובטחים ולא יועברו לצד שלישי</p>
-      </form>
-      <div class="success-msg" id="successMsg">
-        תודה! קיבלתי את הפרטים ואחזור אליך בהקדם 🎩
+          <div class="fg"><label>כתובת מייל</label><input type="email" placeholder="name@company.com" required /></div>
+          <div class="fg"><label>חברה / ארגון <span class="opt">(אופציונלי)</span></label><input type="text" placeholder="שם הארגון" /></div>
+          <button type="submit" class="submit-btn">שלחו את הפרטים שלי ←</button>
+          <p class="form-note">הפרטים שלכם מאובטחים ולא יועברו לצד שלישי</p>
+        </form>
+        <div class="success-msg" id="successMsg">✦ תודה! קיבלתי את הפרטים ואחזור אליך בהקדם 🎩</div>
       </div>
     </div>
   </div>
@@ -714,7 +678,7 @@
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-logo">טווים <strong>חשיבה</strong></div>
+  <span class="footer-logo">טווים <strong>חשיבה</strong></span>
   <div class="footer-links">
     <a href="mailto:info@k2think.com">info@k2think.com</a>
     <a href="tel:0559562242">055-9562242</a>
