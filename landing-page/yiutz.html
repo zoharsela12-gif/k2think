@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ייעוץ ארגוני | טווים חשיבה – זוהר סלע לוי</title>
+  <meta name="description" content="ייעוץ ארגוני שפועל אחרת. שיטה חדשנית מבוססת כובעי חשיבה שמאפשרת לכל שכבות הארגון לקחת חלק בשינוי אמיתי." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --teal:     #a8e0dc;
+      --teal-d:   #72c4be;
+      --lavender: #c5b8e8;
+      --lav-d:    #a898d0;
+      --lime:     #d4e84a;
+      --lime-d:   #b8cc20;
+      --peach:    #f5c87a;
+      --peach-d:  #e0a84a;
+      --white:    #ffffff;
+      --text:     #1a1a1a;
+      --muted:    #5a5a5a;
+      --light:    #f6f6f4;
+      --border:   #e0e0e0;
+      --r:        20px;
+      --r-lg:     32px;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Heebo', sans-serif;
+      background: var(--white);
+      color: var(--text);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ─────────────────────────────────── */
+    nav {
+      position: fixed; top: 0; width: 100%; z-index: 100;
+      background: rgba(255,255,255,0.96);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 52px; height: 66px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .logo {
+      font-size: 1.1rem; font-weight: 400; color: var(--text);
+      text-decoration: none;
+      border: 2px solid var(--text);
+      padding: 5px 14px; border-radius: 10px;
+    }
+    .logo strong { font-weight: 900; }
+    .nav-links { display: flex; gap: 28px; list-style: none; font-size: 0.9rem; font-weight: 500; }
+    .nav-links a { color: var(--text); text-decoration: none; transition: opacity .2s; }
+    .nav-links a:hover { opacity: .55; }
+    .nav-cta {
+      background: var(--lime); color: var(--text);
+      padding: 9px 22px; border-radius: 50px;
+      font-weight: 700; font-size: 0.88rem;
+      text-decoration: none; transition: background .2s;
+    }
+    .nav-cta:hover { background: var(--lime-d); }
+
+    /* ── HERO ────────────────────────────────── */
+    .hero {
+      background: var(--teal);
+      padding: 148px 52px 108px;
+      position: relative; overflow: hidden;
+      min-height: 88vh;
+      display: flex; align-items: center;
+    }
+    .hero-blob {
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    .hero-blob-1 {
+      width: 600px; height: 600px;
+      background: var(--lavender); opacity: .35;
+      top: -200px; left: -180px;
+    }
+    .hero-blob-2 {
+      width: 400px; height: 400px;
+      background: var(--lime); opacity: .3;
+      bottom: -140px; right: 80px;
+    }
+    .hero-inner {
+      position: relative; z-index: 1;
+      max-width: 1080px; margin: 0 auto; width: 100%;
+      display: grid; grid-template-columns: 1fr 420px; gap: 64px; align-items: center;
+    }
+    .hero-star { position: absolute; font-size: 2rem; opacity: .45; }
+    .hero-star:nth-child(1) { top: -60px; left: -20px; transform: rotate(20deg); }
+    .hero-star:nth-child(2) { bottom: -50px; right: -10px; font-size: 1.4rem; transform: rotate(-15deg); }
+
+    .hero-tag {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(255,255,255,.55);
+      border-radius: 50px; padding: 6px 18px;
+      font-size: 0.8rem; font-weight: 700;
+      letter-spacing: .8px; margin-bottom: 22px;
+    }
+    .hero h1 {
+      font-size: clamp(2.8rem, 5vw, 4.4rem);
+      font-weight: 900; line-height: 1.12;
+      letter-spacing: -1.5px; margin-bottom: 24px;
+    }
+    .hero h1 em { font-style: normal; text-decoration: underline; text-underline-offset: 6px; text-decoration-thickness: 3px; }
+    .hero-desc {
+      font-size: 1.08rem; color: rgba(26,26,26,.72);
+      line-height: 1.85; max-width: 480px; margin-bottom: 40px;
+    }
+    .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn-dark {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 14px 30px; background: var(--text); color: var(--white);
+      border-radius: 50px; font-weight: 800; font-size: .95rem;
+      text-decoration: none; transition: opacity .2s, transform .15s;
+    }
+    .btn-dark:hover { opacity: .8; transform: translateY(-2px); }
+    .btn-white {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 14px 30px; background: rgba(255,255,255,.55);
+      color: var(--text); border-radius: 50px;
+      font-weight: 600; font-size: .95rem;
+      text-decoration: none; transition: background .2s;
+    }
+    .btn-white:hover { background: rgba(255,255,255,.8); }
+
+    /* hero floating card */
+    .hero-float {
+      background: var(--white);
+      border-radius: var(--r-lg);
+      padding: 32px 28px;
+      box-shadow: 0 16px 48px rgba(0,0,0,.1);
+    }
+    .hero-float-title {
+      font-size: .82rem; font-weight: 700; letter-spacing: 1px;
+      color: var(--muted); margin-bottom: 20px;
+    }
+    .challenge-list { display: flex; flex-direction: column; gap: 10px; }
+    .challenge-item {
+      display: flex; align-items: flex-start; gap: 12px;
+      background: var(--light); border-radius: 12px; padding: 12px 14px;
+      font-size: .88rem; font-weight: 600; line-height: 1.4;
+    }
+    .c-icon { font-size: 1.2rem; flex-shrink: 0; margin-top: 1px; }
+    .hero-float-cta {
+      margin-top: 20px; padding: 12px; border-radius: 12px;
+      background: var(--lime); text-align: center;
+      font-weight: 800; font-size: .9rem;
+      cursor: pointer;
+    }
+
+    /* ── SHARED ───────────────────────────────── */
+    section { padding: 100px 52px; }
+    .container { max-width: 1080px; margin: 0 auto; }
+    .pill {
+      display: inline-block;
+      border-radius: 50px; padding: 5px 18px;
+      font-size: .78rem; font-weight: 700; letter-spacing: .8px;
+      margin-bottom: 16px;
+    }
+    .pill-lime { background: var(--lime); }
+    .pill-teal { background: var(--teal); }
+    .pill-lav  { background: var(--lavender); }
+    .pill-peach { background: var(--peach); }
+    .sec-title {
+      font-size: clamp(2rem, 3.8vw, 3rem);
+      font-weight: 900; line-height: 1.18;
+      letter-spacing: -.8px; margin-bottom: 18px;
+    }
+    .sec-sub { font-size: 1rem; color: var(--muted); max-width: 540px; line-height: 1.85; }
+    .link-arr {
+      display: inline-flex; align-items: center; gap: 6px;
+      margin-top: 24px; font-size: .92rem; font-weight: 700;
+      color: var(--text); text-decoration: none;
+      border-bottom: 2px solid var(--text); padding-bottom: 1px;
+      transition: opacity .2s;
+    }
+    .link-arr:hover { opacity: .5; }
+
+    /* ── PROBLEM ──────────────────────────────── */
+    .problem { background: var(--light); }
+    .problem-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr);
+      gap: 20px; margin-top: 52px;
+    }
+    .problem-card {
+      background: var(--white);
+      border-radius: var(--r);
+      padding: 32px 28px;
+      border-top: 4px solid var(--lavender);
+      transition: transform .2s;
+    }
+    .problem-card:nth-child(2) { border-color: var(--teal); }
+    .problem-card:nth-child(3) { border-color: var(--peach); }
+    .problem-card:nth-child(4) { border-color: var(--lime); }
+    .problem-card:hover { transform: translateY(-4px); }
+    .p-icon { font-size: 2rem; margin-bottom: 14px; }
+    .problem-card h3 { font-size: 1rem; font-weight: 800; margin-bottom: 8px; }
+    .problem-card p { font-size: .88rem; color: var(--muted); line-height: 1.65; }
+
+    /* ── SOLUTION / WHAT ──────────────────────── */
+    .solution { background: var(--white); }
+    .solution-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 80px; align-items: center; margin-top: 60px;
+    }
+    .sol-visual {
+      background: var(--lavender);
+      border-radius: var(--r-lg);
+      padding: 40px 32px;
+      position: relative; overflow: hidden;
+    }
+    .sol-visual .deco { position: absolute; font-size: 1.6rem; opacity: .35; }
+    .sol-visual .deco:nth-child(1) { top: 18px; left: 18px; transform: rotate(20deg); }
+    .sol-visual .deco:nth-child(2) { bottom: 18px; right: 18px; transform: rotate(-10deg); }
+    .sol-q { font-size: 1.35rem; font-weight: 900; margin-bottom: 24px; line-height: 1.3; }
+    .sol-items { display: flex; flex-direction: column; gap: 10px; }
+    .sol-item {
+      background: var(--white); border-radius: 14px;
+      padding: 14px 18px;
+      display: flex; align-items: center; gap: 12px;
+      font-size: .9rem; font-weight: 600;
+    }
+    .sol-item .num {
+      width: 28px; height: 28px; border-radius: 50%;
+      background: var(--lavender); display: flex;
+      align-items: center; justify-content: center;
+      font-weight: 900; font-size: .82rem; flex-shrink: 0;
+    }
+    .sol-text p { font-size: 1rem; color: var(--muted); line-height: 1.85; margin-bottom: 16px; }
+
+    /* ── UNIQUE ───────────────────────────────── */
+    .unique { background: var(--light); }
+    .unique-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 20px; margin-top: 52px;
+    }
+    .unique-card {
+      border-radius: var(--r-lg);
+      padding: 36px 28px;
+      position: relative; overflow: hidden;
+    }
+    .unique-card:nth-child(1) { background: var(--teal); }
+    .unique-card:nth-child(2) { background: var(--lavender); }
+    .unique-card:nth-child(3) { background: var(--peach); }
+    .u-star { position: absolute; top: 16px; left: 16px; font-size: 1.4rem; opacity: .4; }
+    .u-num { font-size: 4rem; font-weight: 900; color: rgba(0,0,0,.1); line-height: 1; margin-bottom: 12px; }
+    .unique-card h3 { font-size: 1.1rem; font-weight: 900; margin-bottom: 10px; }
+    .unique-card p { font-size: .9rem; color: rgba(26,26,26,.75); line-height: 1.7; }
+
+    /* ── HOW IT WORKS ─────────────────────────── */
+    .how { background: var(--white); }
+    .how-steps {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 0; margin-top: 60px;
+      border: 2px solid var(--border); border-radius: var(--r-lg);
+      overflow: hidden;
+    }
+    .how-step {
+      padding: 44px 32px;
+      border-left: 2px solid var(--border);
+      position: relative;
+    }
+    .how-step:first-child { border-left: none; }
+    .step-num-big {
+      font-size: 5rem; font-weight: 900;
+      color: rgba(26,26,26,.07); line-height: 1;
+      margin-bottom: 8px;
+    }
+    .how-step h3 { font-size: 1.15rem; font-weight: 900; margin-bottom: 10px; }
+    .how-step p { font-size: .9rem; color: var(--muted); line-height: 1.7; }
+    .step-pill {
+      display: inline-block; border-radius: 50px;
+      padding: 4px 14px; font-size: .75rem; font-weight: 700;
+      margin-bottom: 20px;
+    }
+    .how-step:nth-child(1) .step-pill { background: var(--teal); }
+    .how-step:nth-child(2) .step-pill { background: var(--lavender); }
+    .how-step:nth-child(3) .step-pill { background: var(--lime); }
+    .how-arrow {
+      position: absolute; top: 50%; left: -16px;
+      transform: translateY(-50%);
+      font-size: 1.3rem; color: var(--muted);
+      background: var(--white); padding: 2px;
+    }
+
+    /* ── RESULTS ──────────────────────────────── */
+    .results { background: var(--lime); position: relative; overflow: hidden; }
+    .results .deco-big { position: absolute; font-size: 18rem; font-weight: 900; color: rgba(0,0,0,.05); top: -40px; right: 20px; font-family: Georgia; line-height: 1; }
+    .results .container { position: relative; z-index: 1; }
+    .results-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 16px; margin-top: 52px;
+    }
+    .result-card {
+      background: var(--white);
+      border-radius: var(--r);
+      padding: 28px 22px; text-align: center;
+    }
+    .r-icon { font-size: 2.2rem; margin-bottom: 12px; }
+    .result-card h3 { font-size: .95rem; font-weight: 800; margin-bottom: 6px; }
+    .result-card p { font-size: .82rem; color: var(--muted); line-height: 1.55; }
+
+    /* ── WHO IS IT FOR ────────────────────────── */
+    .for-who { background: var(--white); }
+    .for-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 16px; margin-top: 52px;
+    }
+    .for-card {
+      border: 2px dashed var(--border);
+      border-radius: var(--r);
+      padding: 32px 24px; text-align: center;
+      transition: border-color .2s, background .2s;
+    }
+    .for-card:hover { border-color: var(--teal-d); background: var(--light); }
+    .for-icon { font-size: 2.4rem; margin-bottom: 14px; }
+    .for-card h3 { font-size: .98rem; font-weight: 800; margin-bottom: 8px; }
+    .for-card p { font-size: .86rem; color: var(--muted); line-height: 1.6; }
+
+    /* ── ABOUT ────────────────────────────────── */
+    .about { background: var(--lavender); position: relative; overflow: hidden; }
+    .about-deco { position: absolute; font-size: 2rem; opacity: .3; }
+    .about-deco:nth-child(1) { top: 40px; left: 52px; transform: rotate(15deg); }
+    .about-deco:nth-child(2) { bottom: 60px; right: 80px; transform: rotate(-20deg); }
+    .about .container { position: relative; z-index: 1; }
+    .about-inner {
+      display: grid; grid-template-columns: 340px 1fr;
+      gap: 72px; align-items: start;
+    }
+    .about-card {
+      background: var(--white);
+      border-radius: var(--r-lg);
+      padding: 32px 28px;
+      box-shadow: 0 10px 36px rgba(0,0,0,.09);
+    }
+    .about-photo {
+      width: 100%; aspect-ratio: 1;
+      border-radius: var(--r);
+      background: var(--teal);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 5rem; margin-bottom: 22px; overflow: hidden;
+    }
+    .about-photo img { width: 100%; height: 100%; object-fit: cover; }
+    .about-card h3 { font-size: 1.3rem; font-weight: 900; margin-bottom: 4px; }
+    .about-card .role { font-size: .85rem; color: var(--muted); font-weight: 500; margin-bottom: 18px; }
+    .tag-row { display: flex; flex-wrap: wrap; gap: 7px; }
+    .tag { background: var(--lavender); border-radius: 50px; padding: 5px 13px; font-size: .75rem; font-weight: 700; }
+    .about-text p { font-size: 1rem; color: rgba(26,26,26,.8); line-height: 1.85; margin-bottom: 16px; }
+    .about-text p strong { color: var(--text); font-weight: 800; }
+    .quote-box {
+      margin-top: 28px;
+      background: rgba(255,255,255,.6);
+      border-radius: var(--r);
+      padding: 24px 28px;
+      border-right: 4px solid var(--text);
+    }
+    .quote-box p { font-size: 1.05rem; font-weight: 700; line-height: 1.5; margin-bottom: 8px; }
+    .quote-box cite { font-size: .78rem; color: var(--muted); font-style: normal; font-weight: 600; }
+
+    /* ── CONTACT ──────────────────────────────── */
+    .contact { background: var(--white); }
+    .contact-inner { max-width: 660px; margin: 0 auto; text-align: center; }
+    .contact-box {
+      background: var(--teal);
+      border-radius: var(--r-lg);
+      padding: 52px 48px; margin-top: 52px;
+      text-align: right; position: relative; overflow: hidden;
+    }
+    .contact-box .deco { position: absolute; font-size: 1.6rem; opacity: .3; top: 22px; left: 22px; }
+    .contact-box h3 { font-size: 1.6rem; font-weight: 900; margin-bottom: 8px; }
+    .contact-box > p { color: rgba(26,26,26,.7); margin-bottom: 32px; font-size: .97rem; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .fg { margin-bottom: 14px; }
+    .fg label { display: block; font-size: .85rem; font-weight: 700; margin-bottom: 7px; }
+    .fg label .opt { font-weight: 400; opacity: .6; }
+    .fg input, .fg textarea {
+      width: 100%; padding: 13px 16px;
+      border: 2px solid rgba(0,0,0,.12);
+      border-radius: 12px;
+      background: var(--white);
+      font-family: 'Heebo', sans-serif;
+      font-size: .95rem; color: var(--text);
+      outline: none; direction: rtl;
+      transition: border-color .15s;
+    }
+    .fg textarea { resize: vertical; min-height: 90px; }
+    .fg input:focus, .fg textarea:focus { border-color: var(--teal-d); }
+    .fg input::placeholder, .fg textarea::placeholder { color: #bbb; }
+    .submit-btn {
+      width: 100%; padding: 16px;
+      background: var(--text); color: var(--white);
+      border: none; border-radius: 50px;
+      font-family: 'Heebo', sans-serif;
+      font-size: 1rem; font-weight: 800;
+      cursor: pointer; margin-top: 6px;
+      transition: opacity .2s, transform .15s;
+    }
+    .submit-btn:hover { opacity: .8; transform: translateY(-2px); }
+    .form-note { text-align: center; font-size: .78rem; color: rgba(26,26,26,.5); margin-top: 12px; }
+    .success-msg {
+      display: none; text-align: center; padding: 28px;
+      border-radius: var(--r); background: var(--white);
+      margin-top: 20px; font-weight: 800; font-size: 1.1rem;
+    }
+
+    /* ── FOOTER ───────────────────────────────── */
+    footer {
+      background: var(--text);
+      padding: 48px 52px;
+      display: flex; align-items: center;
+      justify-content: space-between; flex-wrap: wrap; gap: 20px;
+    }
+    .footer-logo {
+      font-size: 1.1rem; font-weight: 400; color: var(--white);
+      border: 1.5px solid rgba(255,255,255,.3);
+      padding: 5px 14px; border-radius: 10px;
+    }
+    .footer-logo strong { font-weight: 900; }
+    .footer-links { display: flex; gap: 20px; flex-wrap: wrap; }
+    footer a { color: rgba(255,255,255,.6); text-decoration: none; font-size: .88rem; }
+    footer a:hover { color: var(--white); }
+    .footer-copy { color: rgba(255,255,255,.3); font-size: .8rem; width: 100%; text-align: center; }
+
+    /* ── RESPONSIVE ───────────────────────────── */
+    @media (max-width: 960px) {
+      nav { padding: 0 20px; }
+      .nav-links { display: none; }
+      section { padding: 72px 24px; }
+      .hero { padding: 130px 24px 80px; }
+      .hero-inner { grid-template-columns: 1fr; }
+      .hero-float { display: none; }
+      .problem-grid, .unique-grid, .results-grid, .for-grid { grid-template-columns: 1fr 1fr; }
+      .solution-grid, .about-inner { grid-template-columns: 1fr; gap: 40px; }
+      .how-steps { grid-template-columns: 1fr; }
+      .how-step { border-left: none; border-bottom: 2px solid var(--border); }
+      .how-step:last-child { border-bottom: none; }
+      .how-arrow { display: none; }
+      .form-row { grid-template-columns: 1fr; }
+      .contact-box { padding: 36px 24px; }
+      footer { padding: 36px 24px; }
+    }
+    @media (max-width: 600px) {
+      .problem-grid, .unique-grid, .results-grid, .for-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#top" class="logo">טווים <strong>חשיבה</strong></a>
+  <ul class="nav-links">
+    <li><a href="#problem">האתגר</a></li>
+    <li><a href="#how">איך עובד</a></li>
+    <li><a href="#results">מה מקבלים</a></li>
+    <li><a href="#about">מי אני</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">בואו נדבר ←</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-blob hero-blob-1"></div>
+  <div class="hero-blob hero-blob-2"></div>
+  <div class="hero-inner">
+    <span class="hero-star">✦</span>
+    <span class="hero-star">✦</span>
+    <div>
+      <div class="hero-tag">✦ ייעוץ ארגוני</div>
+      <h1>ייעוץ ארגוני<br/>שפועל <em>אחרת</em></h1>
+      <p class="hero-desc">רוב תהליכי הייעוץ מספרים לארגון מה לעשות. אנחנו עושים משהו שונה — נותנים לארגון את הכלים לחשוב, לזהות ולפתור בעצמו. שיטה חדשנית שמייצרת שינוי אמיתי ומהיר, מבפנים החוצה.</p>
+      <div class="hero-btns">
+        <a href="#contact" class="btn-dark">רוצה לדעת יותר ←</a>
+        <a href="#how" class="btn-white">איך זה עובד?</a>
+      </div>
+    </div>
+    <div class="hero-float">
+      <p class="hero-float-title">✦ האתגרים שאנחנו פותרים</p>
+      <div class="challenge-list">
+        <div class="challenge-item"><span class="c-icon">🔄</span>תהליכי שינוי שתקועים באמצע</div>
+        <div class="challenge-item"><span class="c-icon">💬</span>תקשורת לא אפקטיבית בין צוותים</div>
+        <div class="challenge-item"><span class="c-icon">🎯</span>יעדים שלא מתורגמים לפעולה</div>
+        <div class="challenge-item"><span class="c-icon">🧩</span>פערים בין שכבות הארגון</div>
+      </div>
+      <a href="#contact" class="hero-float-cta">בואו נדבר על הארגון שלכם ←</a>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEM -->
+<section class="problem" id="problem">
+  <div class="container">
+    <span class="pill pill-lav">האתגר</span>
+    <h2 class="sec-title">מה קורה כשהארגון<br/>לא מצליח לזוז?</h2>
+    <p class="sec-sub">ארגונים רבים מזהים שמשהו לא עובד — אבל לא תמיד יודעים בדיוק מה, ובמיוחד איך לשנות את זה באמת.</p>
+    <div class="problem-grid">
+      <div class="problem-card">
+        <div class="p-icon">🗣️</div>
+        <h3>כולם מדברים, אף אחד לא שומע</h3>
+        <p>ישיבות שמסתיימות ללא החלטות, שיח שמתנהל בו-זמנית, ודעות שלא מקבלות ביטוי — גם אצל האנשים החכמים ביותר בחדר.</p>
+      </div>
+      <div class="problem-card">
+        <div class="p-icon">📋</div>
+        <h3>תוכניות שנשארות על הנייר</h3>
+        <p>כמה פעמים בניתם תוכנית אסטרטגית מרשימה שלא הובילה לשינוי אמיתי? הבעיה לא תמיד בתוכנית — אלא בדרך שבה חושבים עליה יחד.</p>
+      </div>
+      <div class="problem-card">
+        <div class="p-icon">🧱</div>
+        <h3>פערים בין שכבות הארגון</h3>
+        <p>ההנהלה חושבת אחד, הצוותים חווים אחרת, והמנהלים באמצע מנסים לגשר — בלי כלים אמיתיים לעשות את זה.</p>
+      </div>
+      <div class="problem-card">
+        <div class="p-icon">⏳</div>
+        <h3>שינוי שלוקח יותר מדי זמן</h3>
+        <p>תהליכי ייעוץ ארוכים שמייצרים תלות יועץ, ולא מצוידים את הארגון לפעול עצמאית. אנחנו עושים את זה אחרת.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOLUTION -->
+<section class="solution" id="solution">
+  <div class="container">
+    <div class="solution-grid">
+      <div class="sol-visual">
+        <span class="deco">✦</span>
+        <span class="deco">✦</span>
+        <p class="sol-q">מה אם כל שכבות הארגון יוכלו לקחת חלק בשינוי?</p>
+        <div class="sol-items">
+          <div class="sol-item"><span class="num">1</span>כולם מזהים את האתגרים יחד</div>
+          <div class="sol-item"><span class="num">2</span>כולם חושבים על פתרונות יחד</div>
+          <div class="sol-item"><span class="num">3</span>כולם בונים תוכנית פעולה יחד</div>
+        </div>
+      </div>
+      <div class="sol-text">
+        <span class="pill pill-lime">הפתרון</span>
+        <h2 class="sec-title">שיטה שמייצרת תנועה ומחוייבות</h2>
+        <p>שיטה חדשנית לקידום שינוי ארגוני מהיר ועמוק, המבוססת על עקרונות כובעי החשיבה. היא מאפשרת לכל שכבות הארגון לקחת חלק בזיהוי האתגרים, בחשיבה לפתרון ובבניית תוכנית פעולה ברורה ומעשית.</p>
+        <p>כשאנשים לוקחים חלק בבניית הפתרון — הם מחוייבים ליישם אותו. זו לא רק פגישת ייעוץ, זה תהליך שמשנה את התרבות הארגונית.</p>
+        <a href="#how" class="link-arr">ראה איך זה עובד ←</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- UNIQUE -->
+<section class="unique" id="unique">
+  <div class="container">
+    <span class="pill pill-teal">מה מיוחד בתהליך</span>
+    <h2 class="sec-title">למה זה עובד?</h2>
+    <p class="sec-sub">שלושה עקרונות שמבדילים את התהליך הזה מכל ייעוץ ארגוני אחר שעשיתם.</p>
+    <div class="unique-grid">
+      <div class="unique-card">
+        <span class="u-star">✦</span>
+        <div class="u-num">01</div>
+        <h3>תהליך ממוקד ותכליתי</h3>
+        <p>עובדים לפי תבנית מסודרת שמביאה סדר, מיקוד ובהירות — ומאפשרת לארגון לקדם שינוי אמיתי בזמן קצר, ללא תלות יועץ.</p>
+      </div>
+      <div class="unique-card">
+        <span class="u-star">✦</span>
+        <div class="u-num">02</div>
+        <h3>שיתוף פעולה שמעלה אפקטיביות</h3>
+        <p>כשכל שכבות הארגון משתתפות בתהליך, נבנית תרבות של אחריות משותפת ושיתוף פעולה אמיתי — לא מלמעלה למטה.</p>
+      </div>
+      <div class="unique-card">
+        <span class="u-star">✦</span>
+        <div class="u-num">03</div>
+        <h3>מעורבות שמביאה מחוייבות</h3>
+        <p>המשחק חושף דפוסי עבודה ומאפשר לבנות מנגנונים משופרים של תקשורת, קבלת החלטות ותיאום — שמקדמים תוצאות.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW -->
+<section class="how" id="how">
+  <div class="container">
+    <span class="pill pill-lav">איך זה עובד</span>
+    <h2 class="sec-title">שלב אחר שלב</h2>
+    <p class="sec-sub">תהליך מובנה, פרקטי וחווייתי — שמוביל לבניית תוכנית פעולה ישימה וברורה.</p>
+    <div class="how-steps">
+      <div class="how-step">
+        <span class="step-pill">שלב 1</span>
+        <div class="step-num-big">1</div>
+        <h3>למידה דרך משחק</h3>
+        <p>התהליך מתחיל בחוויה — לא בהרצאה. כל המשתתפים חווים את דינמיקת הארגון מבפנים, דרך משחק ייחודי שמגלה דפוסים שבדרך כלל נשארים מוסתרים.</p>
+      </div>
+      <div class="how-step">
+        <span class="how-arrow">←</span>
+        <span class="step-pill">שלב 2</span>
+        <div class="step-num-big">2</div>
+        <h3>בחירה ומיקוד</h3>
+        <p>זיהוי הנקודות שהארגון רוצה לבחון: פערים בין צוותים, יעדים שלא מתממשים, תקשורת לקויה, או דרכי עבודה שלא מוצלחות.</p>
+      </div>
+      <div class="how-step">
+        <span class="how-arrow">←</span>
+        <span class="step-pill">שלב 3</span>
+        <div class="step-num-big">3</div>
+        <h3>חשיבה לפי תבניות</h3>
+        <p>תהליך מובנה של חשיבה אפקטיבית בשיטת כובעי החשיבה, שמוביל לבניית תוכנית פעולה ישימה וברורה — שהצוות מחוייב אליה.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESULTS -->
+<section class="results" id="results">
+  <span class="deco-big">"</span>
+  <div class="container">
+    <span class="pill" style="background:rgba(255,255,255,.6)">מה מקבלים</span>
+    <h2 class="sec-title">עם מה יוצאים<br/>מהתהליך?</h2>
+    <p class="sec-sub">תוצאות מוחשיות שניתן ליישם מהיום שאחרי.</p>
+    <div class="results-grid">
+      <div class="result-card">
+        <div class="r-icon">🗺️</div>
+        <h3>תוכנית פעולה ברורה</h3>
+        <p>לא מצגת, לא דוח — תוכנית שהצוות בנה יחד ומחוייב אליה.</p>
+      </div>
+      <div class="result-card">
+        <div class="r-icon">💬</div>
+        <h3>שפה ארגונית משותפת</h3>
+        <p>כלים לתקשורת פנים-ארגונית ברורה יותר, עם פחות פרשנויות שגויות.</p>
+      </div>
+      <div class="result-card">
+        <div class="r-icon">🤝</div>
+        <h3>אחריות משותפת</h3>
+        <p>כשכולם חלק מהפתרון, כולם מחוייבים לביצוע. פחות "זה לא האחריות שלי".</p>
+      </div>
+      <div class="result-card">
+        <div class="r-icon">📈</div>
+        <h3>תרבות ארגונית פתוחה</h3>
+        <p>שינוי תרבותי שמתחיל מבפנים — ומחזיק לאורך זמן גם אחרי סיום התהליך.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOR WHO -->
+<section class="for-who" id="for-who">
+  <div class="container">
+    <span class="pill pill-peach">למי מתאים</span>
+    <h2 class="sec-title">הארגון שלכם<br/>מתאים לתהליך?</h2>
+    <p class="sec-sub">התהליך מתאים לכל ארגון שרוצה שינוי אמיתי — לא עוד ייעוץ שמסתיים במצגת.</p>
+    <div class="for-grid">
+      <div class="for-card">
+        <div class="for-icon">🏢</div>
+        <h3>חברות וארגונים עסקיים</h3>
+        <p>שרוצים לשפר תהליכי עבודה, לחזק שיתוף פעולה ולהוביל שינוי מהיר ומשמעותי.</p>
+      </div>
+      <div class="for-card">
+        <div class="for-icon">👥</div>
+        <h3>צוותים ניהוליים</h3>
+        <p>שנדרשים לקבל החלטות מורכבות יחד, ורוצים כלי לניהול שיח אפקטיבי ומוכוון תוצאות.</p>
+      </div>
+      <div class="for-card">
+        <div class="for-icon">🌱</div>
+        <h3>ארגונים בשינוי</h3>
+        <p>שעוברים מיזוג, צמיחה, שינוי מבנה, או מעבר תרבותי — ורוצים להוביל את זה נכון.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <span class="about-deco">✦</span>
+  <span class="about-deco">✦</span>
+  <div class="container">
+    <div class="about-inner">
+      <div class="about-card">
+        <div class="about-photo">👩</div>
+        <h3>זוהר סלע לוי</h3>
+        <p class="role">יועצת ארגונית בעלת תואר שני, רס"ן במיל'</p>
+        <div class="tag-row">
+          <span class="tag">ייעוץ ארגוני</span>
+          <span class="tag">פיתוח מנהלים</span>
+          <span class="tag">כובעי חשיבה</span>
+          <span class="tag">אימון אישי</span>
+          <span class="tag">תהליכים קהילתיים</span>
+        </div>
+      </div>
+      <div class="about-text">
+        <span class="pill" style="background:rgba(255,255,255,.55)">מי אני</span>
+        <h2 class="sec-title">זוהר סלע לוי</h2>
+        <p>אני מלווה ארגונים, מנהלים ואנשים פרטיים בפיתוח חשיבה אפקטיבית ויכולת מיקוד. מגיעה מעולמות האימון והפיתוח האישי, עם ניסיון בליווי תהליכים ארגוניים וקהילתיים.</p>
+        <p>אני עוזרת להפוך חלומות למטרות מדידות, לפתח מיומנויות חשיבה ולבנות תוכניות פעולה שמובילות לתוצאות. <strong>טווים חשיבה</strong> פיתחה שיטה ייחודית שמאפשרת לכל שכבות הארגון לקחת חלק אמיתי בשינוי.</p>
+        <div class="quote-box">
+          <p>״אם כולם חושבים אותו הדבר,<br/>אז מישהו לא חושב.״</p>
+          <cite>— גנרל ג'ורג' פטון</cite>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="contact-inner">
+      <span class="pill pill-teal">בואו נדבר</span>
+      <h2 class="sec-title">מוכנים להתחיל?</h2>
+      <p class="sec-sub" style="margin:0 auto">השאירו פרטים ואחזור אליכם בהקדם לשיחת היכרות קצרה — ללא התחייבות.</p>
+      <div class="contact-box">
+        <span class="deco">✦</span>
+        <h3>השאירו פרטים</h3>
+        <p>ואחזור אליכם לשיחה קצרה על הארגון שלכם</p>
+        <form id="contactForm" onsubmit="handleSubmit(event)">
+          <div class="form-row">
+            <div class="fg"><label>שם מלא</label><input type="text" placeholder="ישראל ישראלי" required /></div>
+            <div class="fg"><label>טלפון</label><input type="tel" placeholder="050-0000000" required /></div>
+          </div>
+          <div class="form-row">
+            <div class="fg"><label>כתובת מייל</label><input type="email" placeholder="name@company.com" required /></div>
+            <div class="fg"><label>שם הארגון</label><input type="text" placeholder="חברה / ארגון" /></div>
+          </div>
+          <div class="fg"><label>במה תרצו לקבל עזרה? <span class="opt">(אופציונלי)</span></label><textarea placeholder="ספרו לי בקצרה על האתגר שלכם..."></textarea></div>
+          <button type="submit" class="submit-btn">שלחו את הפרטים שלי ←</button>
+          <p class="form-note">הפרטים שלכם מאובטחים ולא יועברו לצד שלישי</p>
+        </form>
+        <div class="success-msg" id="successMsg">✦ תודה! קיבלתי את הפרטים ואחזור אליך בהקדם 🎩</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span class="footer-logo">טווים <strong>חשיבה</strong></span>
+  <div class="footer-links">
+    <a href="mailto:info@k2think.com">info@k2think.com</a>
+    <a href="tel:0559562242">055-9562242</a>
+    <a href="https://k2think.com" target="_blank">www.k2think.com</a>
+  </div>
+  <p class="footer-copy">© 2025 טווים חשיבה | זוהר סלע לוי</p>
+</footer>
+
+<script>
+  function handleSubmit(e) {
+    e.preventDefault();
+    const form = document.getElementById('contactForm');
+    const btn = form.querySelector('.submit-btn');
+    btn.textContent = 'שולח...'; btn.disabled = true;
+    setTimeout(() => {
+      form.style.display = 'none';
+      document.getElementById('successMsg').style.display = 'block';
+    }, 700);
+  }
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const t = document.querySelector(a.getAttribute('href'));
+      if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth' }); }
+    });
+  });
+</script>
+</body>
+</html>
