@@ -706,16 +706,40 @@
 </footer>
 
 <script>
-  function handleSubmit(e) {
+  const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycby4cy6jLDY9MNETraU3vCDe40MjkYt8-Zip_GZ30dlpmFHZGqIg8Bph1hxMxFanUD6b/exec';
+
+  async function handleSubmit(e) {
     e.preventDefault();
     const form = document.getElementById('contactForm');
-    const btn = form.querySelector('.submit-btn');
-    btn.textContent = 'שולח...'; btn.disabled = true;
-    setTimeout(() => {
-      form.style.display = 'none';
-      document.getElementById('successMsg').style.display = 'block';
-    }, 700);
+    const btn  = form.querySelector('.submit-btn');
+
+    btn.textContent = 'שולח...';
+    btn.disabled = true;
+
+    const inputs = form.querySelectorAll('input, textarea');
+    const data = {
+      name:    form.querySelector('input[type="text"]').value,
+      phone:   form.querySelector('input[type="tel"]').value,
+      email:   form.querySelector('input[type="email"]').value,
+      company: form.querySelectorAll('input[type="text"]')[1]?.value || '',
+      message: form.querySelector('textarea')?.value || ''
+    };
+
+    try {
+      await fetch(SCRIPT_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      });
+    } catch (err) {
+      console.error('שגיאה בשליחה:', err);
+    }
+
+    form.style.display = 'none';
+    document.getElementById('successMsg').style.display = 'block';
   }
+
   document.querySelectorAll('a[href^="#"]').forEach(a => {
     a.addEventListener('click', e => {
       const t = document.querySelector(a.getAttribute('href'));
